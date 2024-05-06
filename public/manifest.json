@@ -1,0 +1,9 @@
+{
+  "short_name": "Molly McHenry Portfolio",
+  "name": "Molly McHenry Embedded Software Portfolio",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

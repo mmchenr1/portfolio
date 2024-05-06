@@ -1,0 +1,62 @@
+[
+    {
+        "name": "Arduino Hero",
+        "frameworks": ["Embedded C", "Python", "SAMD MCUs"],
+        "timeline": "2.5 months",
+        "role": "creator, engineer, software developer",
+        "description": "TODO",
+        "route": "/ArduinoHero",
+        "main_image": "../assets/placeholder.png",
+        "collaborators": "Serena Pulopot, Patrick Ortiz, Nick Bottone, David Fryd",
+        "sections": [
+            {
+                "title": "hi",
+                "text": "nefjikwafnejk;wanfkw",
+                "images": ["../assets/placeholder.png"]
+            }
+        ]
+    },
+    {
+        "name": "Development",
+        "frameworks": ["HTML","React.js", "CSS"],
+        "timeline": "2 weeks???",
+        "role": "designer, frontend developer",
+        "description": "Song aggregator with filters and sorts",
+        "route": "/Development",
+        "main_image": "../assets/placeholder.png",
+        "collaborators": "Serena Pulopot, Patrick Ortiz, Nick Bottone, David Fryd",
+        "sections": [
+            {
+                "title": "hi",
+                "text": "nefjikwafnejk;wanfkw",
+                "images": ["../assets/placeholder.png"]
+            }
+        ]
+    },
+    {
+        "name": "Partiful Profile Design",
+        "frameworks": ["Figma"],
+        "timeline": "3 weeks???",
+        "role": "designer",
+        "description": "TODO",
+        "route": "/PartifulProfileDesign",
+        "main_image": "../assets/placeholder.png",
+        "sections": [
+            {
+                "title": "hi",
+                "text": "nefjikwafnejk;wanfkw",
+                "images": ["../assets/placeholder.png"]
+            },
+            {
+                "title": "hi",
+                "text": "nefjikwafnejk;wanfkw",
+                "images": ["../assets/placeholder.png","../assets/placeholder.png"]
+            },
+            {
+                "title": "hi",
+                "text": "nefjikwafnejk;wanfkw",
+                "images": []
+            }
+        ]
+    }
+]
