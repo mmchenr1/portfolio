@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 export default function ProjectBox(props) {
-    const { name, description, frameworks } = props;
+    const { name, description_short, frameworks } = props;
     const navigate = useNavigate();
 
     return(
@@ -15,7 +15,7 @@ export default function ProjectBox(props) {
                         {name}
                     </p>
                     <p className="work-description">
-                        {description}
+                        {description_short}
                     </p>
                     
                     <div className="tags">

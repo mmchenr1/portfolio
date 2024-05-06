@@ -3,59 +3,141 @@
         "name": "Arduino Hero",
         "frameworks": ["Embedded C", "Python", "SAMD MCUs"],
         "timeline": "2.5 months",
-        "role": "creator, engineer, software developer",
-        "description": "TODO",
+        "role": "Creator, Engineer, Embedded Software Engineer",
+        "description_short": "TODO",
+        "description_long": "TODO",
         "route": "/ArduinoHero",
         "main_image": "../assets/placeholder.png",
-        "collaborators": "Serena Pulopot, Patrick Ortiz, Nick Bottone, David Fryd",
+        "collaborators": "Serena Pulopot, Patrick Ortiz, Nick Bottone, & David Fryd",
         "sections": [
-            {
-                "title": "hi",
-                "text": "nefjikwafnejk;wanfkw",
-                "images": ["../assets/placeholder.png"]
-            }
+            
         ]
     },
     {
-        "name": "Development",
+        "name": "Music Aggregator",
         "frameworks": ["HTML","React.js", "CSS"],
-        "timeline": "2 weeks???",
-        "role": "designer, frontend developer",
-        "description": "Song aggregator with filters and sorts",
-        "route": "/Development",
-        "main_image": "../assets/placeholder.png",
-        "collaborators": "Serena Pulopot, Patrick Ortiz, Nick Bottone, David Fryd",
+        "timeline": "2 weeks",
+        "role": "Designer, Frontend Developer",
+        "description_short": "React web app song aggregator with filtering and sorting",
+        "description_long": "I designed an interface that allows users to filter, sort, and favorite songs and then view their favorited songs in an aggregator. In designing the interface, I first analyzed and compared three desktop music platforms with these features: Spotify, Deezer, and Youtube Music. I then took my findings and created my interface using React.js.",
+        "route": "/MusicAggregator",
+        "main_image": "../assets/music-aggregator/my-design.png",
+        "collaborators": "",
+        "links": ["https://uiux-development.vercel.app/"],
         "sections": [
             {
-                "title": "hi",
-                "text": "nefjikwafnejk;wanfkw",
-                "images": ["../assets/placeholder.png"]
+                "title": "Competitor Analysis",
+                "text": ["First, I analyzed similar platforms that offer music favoriting and aggregation, along with filtering and sorting options. I compiled my findings into a competitive comparison chart to identify what features I want to include in my design."],
+                "full_images": ["../assets/music-aggregator/comparison-chart.png"],
+                "inline_images": []
+            },
+            {
+                "title": "Analysis Findings: Strengths & Weaknesses",
+                "text": ["Spotify's biggest shortcoming is the lack of sorting within lists of songs, both in song exploration and within the liked songs aggregator. Its success lies primarily in the sleekness of the interface, which presents relevant information about each song without over-cluttering the space.",
+                    "On the other hand, Deezer showcases too much information about each song. This clutter of information poses clarity issues and overwhelms users. Deezer's strength, undoubtedly, is its sorting options available for all song lists, both in the liked songs and explore sections. ",
+                    "YouTube Music had the weakest UI, in my opinion. The most obvious issue is the lack of efficiency in liking songs: it takes a user three clicks to add a song to the favorited list, and the favoriting feature is hidden within the UI, causing issues with efficiency and learnability. There are also no sorting options within song lists. I enjoy the easy navigation of filtering songs by moods and genres and consider it one of YouTube Music's few successes in terms of UI."],
+                "full_images": [],
+                "inline_images": []
+            }
+            ,
+            {
+                "title": "Ideation",
+                "text": ["From the above competitive analysis, I created the following list of factors and designs to incorporate in my own design:"],
+                "list": ["Sorting both within discoverable items and within the aggregator", "Hovering over an item shows favorite button (Spotify)",
+                    "Delay after unfavoriting an item before it's removed from the aggregator to allow user to refavorite",
+                    "Filtering by categories common to items (Youtube Music). In the context of songs, I'd like to expand this to allow for multiple genre filters to be available at once in order to capture more niche sub-genres and cross-genre spaces.",
+                    "I'd like to incorporate at least one sort based on the qualities of a song... i.e. if a song is happy or mellow. This will hopefully help users not just sort songs based on their titles or lenght, but also based on the contents of the songs themselves.",
+                    "Liking a song takes a single click",
+                    "Hovering and button clicks show extraneous information rather than having it visible at all times for each song"
+                ],
+                "full_images": [],
+                "inline_images": []
+            },
+            {
+                "title": "Low Fidelity Wireframe",
+                "text": ["Using these ideas, I created a very basic sketch in Figma of the general layout of my page. I created my design with the intention of allowing users to easily navigate a song discovery panel by having the option to filter and sort. Note that the information necessary to the filters is intended to be displayed in a popup once the user hits the info button on the item card. Also of note, I elected to only feature sorting in the aggregator because the filter bubbles take up a significant amount of vertical space and make the section look cluttered."],
+                "full_images": [],
+                "inline_images": ["../assets/music-aggregator/mockup.png"]
+            },
+            {
+                "title": "Development",
+                "text": ["From this wireframe, I then began coding! I created a React.js web application and dynamically updated liked song histories and filtered/sorted song lists. Additionally, I used the Spotify API to retrieve song data for the song bank used in this web app. Filtering options were chosen based on my previous compeitive analysis and the data available through the API."],
+                "full_images": ["../assets/music-aggregator/my-design.png"],
+                "inline_images": []
+            },
+            {
+                "title": "Takeaways",
+                "text": ["Through this project I learned to balance information necessary for sorting, filtering, and aggregation with good design so that the page doesn't become cluttered and visually overwhelming for users. I also learned the considerations competing song aggregators have to keep in mind when presenting information and interfaces to users."],
+                "full_images": [],
+                "inline_images": []
             }
         ]
     },
     {
         "name": "Partiful Profile Design",
         "frameworks": ["Figma"],
-        "timeline": "3 weeks???",
-        "role": "designer",
-        "description": "TODO",
+        "timeline": "3 weeks",
+        "role": "Designer",
+        "description_short": "Redesign of Partiful mobile app profile pages",
+        "description_long": "I worked with Partiful, a startup party planning app, and a team of developers to design new features aimed at boosting user engagement with profiles.",
         "route": "/PartifulProfileDesign",
         "main_image": "../assets/placeholder.png",
+        "collaborators": "Sita Pawar, Andy Burris, & Grace Miller",
         "sections": [
             {
-                "title": "hi",
-                "text": "nefjikwafnejk;wanfkw",
-                "images": ["../assets/placeholder.png"]
+                "title": "The Task",
+                "text": ["We teamed up with Partiful, an event invitation platform, to design features that encourage users to fill out their profiles. Over the timeline of this project, we conferenced with Partiful team members and interatively designed as we received feedback.", 
+                "For more information about Partiful and the specifics of our work, check out the links below."],
+                "links": [
+                    {
+                        "name": "Project Brief",
+                        "link": "https://docs.google.com/document/d/19Au37Jwm3JA1r486SNlFD61qZsglyCzhCWDwMwx98HY/edit?usp=sharing"
+                    },
+                    {
+                        "name": "Partiful",
+                        "link": "https://partiful.com/"
+                    }
+                ],
+                "full_images": [],
+                "inline_images": []
             },
             {
-                "title": "hi",
-                "text": "nefjikwafnejk;wanfkw",
-                "images": ["../assets/placeholder.png","../assets/placeholder.png"]
+                "title": "Sketching",
+                "text": [
+                    "We started our design process by sketching ideas for different flows. Each developer chose two flows to sketch, adding new features. The first flow I sketched was how users can view people's profiles from the RSVP list for an event. I also sketched a flow for how users can view and interact with a list of mutuals on other's profiles.",
+                    "In these sketches I had a few initial ideas to incentivize users to fill our profile information:"
+                ],
+                "list": [
+                    "Including a \"Party Anthem\" as a fun field to include in a profile. This fills up empty space and is a fun, personal way to show personality.",
+                    "\"Bestie Alerts\" to encourage users to view another profile. This feature demonstrates a fun effect and background on the profile, which users may want to unlock themselves by completing their profile.",
+                    "I explored friending, but had many concerns about what this feature means for users since Partiful doesn't support messaging or exploring profiles."
+                ],
+                "full_images": ["../assets/partiful/sketch.png"],
+                "inline_images": []
             },
             {
-                "title": "hi",
-                "text": "nefjikwafnejk;wanfkw",
-                "images": []
+                "title": "Wireframes",
+                "text": [],
+                "full_images": ["../assets/partiful/initial_wireframe.png"],
+                "inline_images": []
+            },
+            {
+                "title": "High Fidelity Mockups",
+                "text": [],
+                "full_images": [],
+                "inline_images": []
+            },
+            {
+                "title": "Style Guide",
+                "text": ["In adding our new features, we developed a style guide to guide our high fidelity mockups. The fonts were explicitely given to us by Partiful; the other elements are modeled around the existing design and shaped to suit our additional features."],
+                "full_images": [],
+                "inline_images": []    
+            },
+            {
+                "title": "Startup Feedback",
+                "text": [],
+                "full_images": [],
+                "inline_images": []
             }
         ]
     }
