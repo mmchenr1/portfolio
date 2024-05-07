@@ -470,14 +470,16 @@ h1{
   }
 
   .full-img{
-    max-width: 80%;
+    /* max-width: 80%; */
+    max-height: 70vh;
+    width: auto;
     min-width: 450px;
     height: auto;
   }
 
-  .section-contents img,p{
+  /* .section-contents img,p{
     flex: 1;
-  }
+  } */
 
   .section-text{
     display: flex;

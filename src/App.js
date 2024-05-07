@@ -1,4 +1,6 @@
 import React from "react";
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar';
@@ -9,10 +11,20 @@ import FromTheSky from './pages/FromTheSky'
 import work_data from './data/work.json'
 import ProjectPage from './components/ProjectPage'
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Work />} />

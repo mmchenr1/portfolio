@@ -8,21 +8,28 @@ export default function ProjectBox(props) {
   const project = props.project;
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight;
-      const clientHeight = document.documentElement.clientHeight;
-      const progressWidth = (scrollTop / (scrollHeight - clientHeight - 353)) * 100;
-      setScrollProgress(progressWidth);
-    };
+useEffect(() => {
+  const handleScroll = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
+    const progressWidth = (scrollTop / (scrollHeight - clientHeight - 353)) * 100;
+    setScrollProgress(progressWidth);
+  };
 
-    window.addEventListener('scroll', handleScroll);
+  window.addEventListener('scroll', handleScroll);
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
+
+const scrollToSection = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
   return (
     <div id={props.project} className="project-page">
@@ -70,8 +77,8 @@ export default function ProjectBox(props) {
               <h3>03  Jump To</h3>
               <div id="jump-to-links">
                 {project.sections.map((section, index) => (
-                  <a key={index} href={`/${project.route}#section-${index + 4}`}>
-                    {`${String(index+4).padStart(2, '0')}${title_spacing}${section.title}`}
+                  <a key={index} href={`#${section.title}`} onClick={() => scrollToSection(`section-${index + 4}`)}>
+                    {`${String(index + 4).padStart(2, '0')}${title_spacing}${section.title}`}
                   </a>
                 ))}
               </div>
@@ -80,7 +87,7 @@ export default function ProjectBox(props) {
         </div>
         
         {project.sections.map((section, index) => (
-          <Section key={index} id={`section-${index + 4}`} i={index+4} {...section}/>
+          <Section key={index} i={index+4} {...section}/>
         ))}
 
       </div>
@@ -104,7 +111,7 @@ function Section(props) {
   const sectionClass = props.i % 2 === 0 ? "project-section alt-proj-section-background": "project-section"; // Conditionally apply class
 
   return(
-    <div className={sectionClass}>
+    <div className={sectionClass} id={`section-${props.i}`}>
       <h3>{formattedIndex}{title_spacing}{props.title}</h3>
       <div className="section-contents">
 
