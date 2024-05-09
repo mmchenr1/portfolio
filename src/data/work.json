@@ -23,51 +23,77 @@
         "route": "/MusicAggregator",
         "main_image": "../assets/music-aggregator/my-design.png",
         "collaborators": "",
-        "links": ["https://uiux-development.vercel.app/"],
+        "image_link": "https://uiux-development.vercel.app/",
         "sections": [
             {
                 "title": "Competitor Analysis",
-                "text": ["First, I analyzed similar platforms that offer music favoriting and aggregation, along with filtering and sorting options. I compiled my findings into a competitive comparison chart to identify what features I want to include in my design."],
+                "contents": [
+                    {
+                        "text": "First, I analyzed similar platforms that offer music favoriting and aggregation, along with filtering and sorting options. I compiled my findings into a competitive comparison chart to identify what features I want to include in my design."
+                    }
+                ],
                 "full_images": ["../assets/music-aggregator/comparison-chart.png"],
                 "inline_images": []
             },
             {
                 "title": "Analysis Findings: Strengths & Weaknesses",
-                "text": ["Spotify's biggest shortcoming is the lack of sorting within lists of songs, both in song exploration and within the liked songs aggregator. Its success lies primarily in the sleekness of the interface, which presents relevant information about each song without over-cluttering the space.",
-                    "On the other hand, Deezer showcases too much information about each song. This clutter of information poses clarity issues and overwhelms users. Deezer's strength, undoubtedly, is its sorting options available for all song lists, both in the liked songs and explore sections. ",
-                    "YouTube Music had the weakest UI, in my opinion. The most obvious issue is the lack of efficiency in liking songs: it takes a user three clicks to add a song to the favorited list, and the favoriting feature is hidden within the UI, causing issues with efficiency and learnability. There are also no sorting options within song lists. I enjoy the easy navigation of filtering songs by moods and genres and consider it one of YouTube Music's few successes in terms of UI."],
+                "contents": [
+                    {
+                        "text": "Spotify's biggest shortcoming is the lack of sorting within lists of songs, both in song exploration and within the liked songs aggregator. Its success lies primarily in the sleekness of the interface, which presents relevant information about each song without over-cluttering the space."
+                    },
+                    {
+                        "text": "On the other hand, Deezer showcases too much information about each song. This clutter of information poses clarity issues and overwhelms users. Deezer's strength, undoubtedly, is its sorting options available for all song lists, both in the liked songs and explore sections."
+                    },
+                    {
+                        "text": "YouTube Music had the weakest UI, in my opinion. The most obvious issue is the lack of efficiency in liking songs: it takes a user three clicks to add a song to the favorited list, and the favoriting feature is hidden within the UI, causing issues with efficiency and learnability. There are also no sorting options within song lists. I enjoy the easy navigation of filtering songs by moods and genres and consider it one of YouTube Music's few successes in terms of UI."
+                    }
+                ],
                 "full_images": [],
                 "inline_images": []
             }
             ,
             {
                 "title": "Ideation",
-                "text": ["From the above competitive analysis, I created the following list of factors and designs to incorporate in my own design:"],
-                "list": ["Sorting both within discoverable items and within the aggregator", "Hovering over an item shows favorite button (Spotify)",
-                    "Delay after unfavoriting an item before it's removed from the aggregator to allow user to refavorite",
-                    "Filtering by categories common to items (Youtube Music). In the context of songs, I'd like to expand this to allow for multiple genre filters to be available at once in order to capture more niche sub-genres and cross-genre spaces.",
-                    "I'd like to incorporate at least one sort based on the qualities of a song... i.e. if a song is happy or mellow. This will hopefully help users not just sort songs based on their titles or lenght, but also based on the contents of the songs themselves.",
-                    "Liking a song takes a single click",
-                    "Hovering and button clicks show extraneous information rather than having it visible at all times for each song"
+                "contents": [
+                    {"text": "From the above competitive analysis, I created the following list of factors and designs to incorporate in my own design:"},
+                    {"list": ["Sorting both within discoverable items and within the aggregator", "Hovering over an item shows favorite button (Spotify)",
+                        "Delay after unfavoriting an item before it's removed from the aggregator to allow user to refavorite",
+                        "Filtering by categories common to items (Youtube Music). In the context of songs, I'd like to expand this to allow for multiple genre filters to be available at once in order to capture more niche sub-genres and cross-genre spaces.",
+                        "I'd like to incorporate at least one sort based on the qualities of a song... i.e. if a song is happy or mellow. This will hopefully help users not just sort songs based on their titles or lenght, but also based on the contents of the songs themselves.",
+                        "Liking a song takes a single click",
+                        "Hovering and button clicks show extraneous information rather than having it visible at all times for each song"]
+                    }
                 ],
                 "full_images": [],
                 "inline_images": []
             },
             {
                 "title": "Low Fidelity Wireframe",
-                "text": ["Using these ideas, I created a very basic sketch in Figma of the general layout of my page. I created my design with the intention of allowing users to easily navigate a song discovery panel by having the option to filter and sort. Note that the information necessary to the filters is intended to be displayed in a popup once the user hits the info button on the item card. Also of note, I elected to only feature sorting in the aggregator because the filter bubbles take up a significant amount of vertical space and make the section look cluttered."],
+                "contents": [
+                    {
+                        "text": "Using these ideas, I created a very basic sketch in Figma of the general layout of my page. I created my design with the intention of allowing users to easily navigate a song discovery panel by having the option to filter and sort. Note that the information necessary to the filters is intended to be displayed in a popup once the user hits the info button on the item card. Also of note, I elected to only feature sorting in the aggregator because the filter bubbles take up a significant amount of vertical space and make the section look cluttered."
+                    }
+                ],
                 "full_images": [],
                 "inline_images": ["../assets/music-aggregator/mockup.png"]
             },
             {
                 "title": "Development",
-                "text": ["From this wireframe, I then began coding! I created a React.js web application and dynamically updated liked song histories and filtered/sorted song lists. Additionally, I used the Spotify API to retrieve song data for the song bank used in this web app. Filtering options were chosen based on my previous compeitive analysis and the data available through the API."],
+                "contents": [
+                    {
+                        "text": "From this wireframe, I then began coding! I created a React.js web application and dynamically updated liked song histories and filtered/sorted song lists. Additionally, I used the Spotify API to retrieve song data for the song bank used in this web app. Filtering options were chosen based on my previous compeitive analysis and the data available through the API."
+                    }
+                ],
                 "full_images": ["../assets/music-aggregator/my-design.png"],
                 "inline_images": []
             },
             {
                 "title": "Takeaways",
-                "text": ["Through this project I learned to balance information necessary for sorting, filtering, and aggregation with good design so that the page doesn't become cluttered and visually overwhelming for users. I also learned the considerations competing song aggregators have to keep in mind when presenting information and interfaces to users."],
+                "contents": [
+                    {
+                        "text": "Through this project I learned to balance information necessary for sorting, filtering, and aggregation with good design so that the page doesn't become cluttered and visually overwhelming for users. I also learned the considerations competing song aggregators have to keep in mind when presenting information and interfaces to users."
+                    }
+                ],
                 "full_images": [],
                 "inline_images": []
             }
@@ -86,16 +112,24 @@
         "sections": [
             {
                 "title": "The Task",
-                "text": ["We teamed up with Partiful, an event invitation platform, to design features that encourage users to fill out their profiles. Over the timeline of this project, we conferenced with Partiful team members and interatively designed as we received feedback.", 
-                "For more information about Partiful and the specifics of our work, check out the links below."],
-                "links": [
+                "contents": [
                     {
-                        "name": "Project Brief",
-                        "link": "https://docs.google.com/document/d/19Au37Jwm3JA1r486SNlFD61qZsglyCzhCWDwMwx98HY/edit?usp=sharing"
+                        "text": "We teamed up with Partiful, an event invitation platform, to design features that encourage users to fill out their profiles. Over the timeline of this project, we conferenced with Partiful team members and interatively designed as we received feedback."
                     },
                     {
-                        "name": "Partiful",
-                        "link": "https://partiful.com/"
+                        "text":  "For more information about Partiful and the specifics of our work, check out the links below."
+                    },
+                    {
+                        "links": [
+                            {
+                                "name": "Project Brief",
+                                "link": "https://docs.google.com/document/d/19Au37Jwm3JA1r486SNlFD61qZsglyCzhCWDwMwx98HY/edit?usp=sharing"
+                            },
+                            {
+                                "name": "Partiful",
+                                "link": "https://partiful.com/"
+                            }
+                        ]
                     }
                 ],
                 "full_images": [],
@@ -103,39 +137,204 @@
             },
             {
                 "title": "Sketching",
-                "text": [
-                    "We started our design process by sketching ideas for different flows. Each developer chose two flows to sketch, adding new features. The first flow I sketched was how users can view people's profiles from the RSVP list for an event. I also sketched a flow for how users can view and interact with a list of mutuals on other's profiles.",
-                    "In these sketches I had a few initial ideas to incentivize users to fill our profile information:"
+                "contents": [
+                    {
+                        "text": "We started our design process by sketching ideas for different flows. Each developer chose two flows to sketch, adding new features. The first flow I sketched was how users can view people's profiles from the RSVP list for an event. I also sketched a flow for how users can view and interact with a list of mutuals on other's profiles."
+                    },
+                    {
+                        "text":  "In these sketches I had a few initial ideas to incentivize users to fill our profile information:"
+                    },
+                    {
+                        "list": [
+                            "Including a \"Party Anthem\" as a fun field to include in a profile. This fills up empty space and is a fun, personal way to show personality.",
+                            "\"Bestie Alerts\" to encourage users to view another profile. This feature demonstrates a fun effect and background on the profile, which users may want to unlock themselves by completing their profile.",
+                            "I explored friending, but had many concerns about what this feature means for users since Partiful doesn't support messaging or exploring profiles."
+                        ]
+                    },
+                    {
+                        "text":  "The other designers also made sketches with ideas for verified badges on fully completed profiles, horiscope birthdays, and popups to prompt users to add information to their profiles."
+                    }
                 ],
-                "list": [
-                    "Including a \"Party Anthem\" as a fun field to include in a profile. This fills up empty space and is a fun, personal way to show personality.",
-                    "\"Bestie Alerts\" to encourage users to view another profile. This feature demonstrates a fun effect and background on the profile, which users may want to unlock themselves by completing their profile.",
-                    "I explored friending, but had many concerns about what this feature means for users since Partiful doesn't support messaging or exploring profiles."
-                ],
-                "full_images": ["../assets/partiful/sketch.png"],
-                "inline_images": []
+                "full_images": [],
+                "inline_images": ["../assets/partiful/sketch.png"]
             },
             {
                 "title": "Wireframes",
-                "text": [],
+                "contents": [
+                    {
+                        "text": "From here, we compiled the sketches into some initial wireframes. We drew inspiration from our sketches pulling from the verified sign on profiles, more customization options, and different ways to build out the mutuals features. Our primary objective was incentivizing users to complete their profile with a photo and more information. We focused on two avenues to achieve this:"
+                    },
+                    {
+                        "list": [
+                            "Adding more calls to action and paths to direct users towards editing their profile",
+                            "Emphasizing the social connectivity of the platform with the assumption that if you feel like people are actually looking at your profile, you are more likely to care about how it looks."
+                        ]
+                    },
+                    {
+                        "text": "For our first objective we added more customizable features since we believe that if people want to edit or fill out one feature on their profile they are more likely to fill out more things since they are already on their profile. Some new features we designed to achieve this included:"
+                    },
+                    {
+                        "list": [
+                            "\"Party anthem\" module on the profile page. A fun feature that can help bring people to the edit profile page",
+                            "Rebranding birthday month as horoscope on profile page. This feels less revealing of personal info and is more interesting to know",
+                            "Adding complete check mark on profile that can unlock new customization features",
+                            "Including buttons prompting the user to add socials by default when viewing the user's own profile",
+                            "Add new customization options for profile background (similar to event page)"
+                        ]
+                    }
+                ],
                 "full_images": ["../assets/partiful/initial_wireframe.png"],
                 "inline_images": []
             },
             {
-                "title": "High Fidelity Mockups",
-                "text": [],
+                "title": "User Interviews",
+                "contents": [
+                    {
+                        "text": "Since our demographic is the target audience for Partiful, we decided to ask some of our peers about their experiences with the platform and what might incentivize them to fill out more information."
+                    },
+                    {
+                        "text": "From a group interview as well as some informal one-on-one interviews, our main takeaways were:"
+                    },
+                    {
+                        "list": [
+                            "No one we talked to had filled out their profile", 
+                            "Many people didn't even realize they had a profile or didn't remember ever being prompted to add a photo",
+                            "They didn't understand why adding more information was necessary"
+                        ]
+                    },
+                    {
+                        "text": "When we asked about reasons people could be more compelled to include more information some prominent responses included:"
+                    },
+                    {
+                        "list": [
+                            "If photos were required in order to see the guest list/reply. Or if other important features were blocked - however \"this would be super annoying\"",
+                            "If they had a good reason. We discussed framing socials as a way to connect with people after a party and emphasizing the importance of photos for identifying people who are coming",
+                            "If everyone else had a photo/filled out profile"
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Wireframe Revision",
+                "contents": [
+                    {
+                        "text": "After creating our initial wireframes, we collected feedback from user interviews, peers, and our contacts at Partiful. We then incorporated this feedback to improve our wireframes. Most of the changes centered around sizing—we removed elements that would have too small touch targets, and column layouts that wouldn't work with smaller screen sizes. We also reprioritized what the most important information to show in each view was, and removed info that was overwhelming."
+                    }
+                ],
+                "full_images": ["../assets/partiful/revised_wireframe.png"]
+
+            },
+            {
+                "title": "High Fidelity Wireframes",
+                "contents": [
+                    {
+                        "text": "After revisions, we created our final hi-fi wireframes in Figma."
+                    },
+                    {
+                        "links": [
+                            {
+                                "name": "Figma Flow 1: RSVP and Add Social",
+                                "link": "https://www.figma.com/proto/NrxtRs7GuhJVrY6WAFXMMf/Partiful-Profles?page-id=68%3A2197&type=design&node-id=334-16273&viewport=960%2C70%2C0.15&t=5YuKiCAdFb9bh05W-1&scaling=scale-down&starting-point-node-id=334%3A16273&show-proto-sidebar=1&mode=design"
+                            },
+                            {
+                                "name": "Figma Flow 2: Customize Profile",
+                                "link": "https://www.figma.com/proto/NrxtRs7GuhJVrY6WAFXMMf/Partiful-Profles?page-id=68%3A2197&type=design&node-id=288-2162&viewport=960%2C70%2C0.15&t=5YuKiCAdFb9bh05W-1&scaling=scale-down&starting-point-node-id=288%3A2162&show-proto-sidebar=1&mode=design"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "The final design choices that made it into our hi-fi mockups are as follows:"
+                    },
+                    { 
+                        "subsections": [
+                            {
+                            "title": "Complete check marks",
+                            "contents": [
+                                {
+                                    "text": "Everyone wants the verified blue checkmark on social media platforms like Instagram or Twitter, so we decided to leverage this motivation to incentivize users to complete their profiles. Once a profile is completely filled out, users get a yellow checkmark icon that appears next to their name."
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Gatekeeping socials",
+                            "contents": [
+                                {
+                                    "text": "Users can't see other user's linked socials unless they have added socials themselves. This incentivizes users to avoid missed connections from parties by adding socials so partiers can get in touch."
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Updated edit profile flow",
+                            "contents": [
+                                {
+                                    "text": "We added a progress bar to show how complete a user's profile is. This can help inform the user that there still things for them to complete, and to incentive users's to fill up the bar.."
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Party Anthems",
+                            "contents": [
+                                {
+                                    "text": "We added the option to link a song from Spotify or Apple Music to a profile so that users can share more of their personality! This is a field that we think users will want to complete, which adds more information to their profile page."
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Pop-ups",
+                            "contents": [
+                                {
+                                    "text": "We believe that adding more prompts with compelling reasons for users to add information will increase the completion of profiles. Adding fun pop-ups can remind the user that they haven't completed their profile while still allowing for easy dismissal in order not to be a burden. Our pop-ups also provide a reason for why Partiful is asking for this information."
+                                }
+                            ]
+                        },
+                        {
+                            "title": "Customizable background",
+                            "contents": [{
+                                "text": "Once a user completes all the information from their profile, they unlock customizable backgrounds and particles effects, similar to the events page. The idea is that users will enjoy the fun customization, and therefore be incentivized to complete their profiles."
+                            }]
+                        },
+                        {
+                            "title": "Profile Cards",
+                            "contents": [{
+                                "text": "We modified the guest list of an event from a scrollable section of names and profile pictures, to featuring \"cards\" for each profile. These cards provide users with a fun way to showcase their customized profile settings even when in a list among other users. By expanding the effects of customization beyond a user's profile page, users are further incentivized to complete their profile."
+                            }]
+                        }]
+                    }
+                ],
                 "full_images": [],
-                "inline_images": []
+                "inline_images": [],
+                "carousel": [
+                    {
+                        "video": "../assets/partiful/carousel-media/RSVP_Socials.mp4"
+                    },
+                    {
+                        "video": "../assets/partiful/carousel-media/fill-profile.mp4"
+                    },
+                    {
+                        "image": "../assets/partiful/carousel-media/hi-fi-1.png"
+                    },
+                    {
+                        "image": "../assets/partiful/carousel-media/hi-fi-2.png"
+                    }
+                ]
             },
             {
                 "title": "Style Guide",
-                "text": ["In adding our new features, we developed a style guide to guide our high fidelity mockups. The fonts were explicitely given to us by Partiful; the other elements are modeled around the existing design and shaped to suit our additional features."],
+                "contents": [
+                    {
+                        "text": "In adding our new features, we developed a style guide to guide our high fidelity mockups. The fonts were explicitely given to us by Partiful; the other elements are modeled around the existing design and shaped to suit our additional features."
+                    }
+                ],
                 "full_images": [],
                 "inline_images": []    
             },
             {
                 "title": "Startup Feedback",
-                "text": [],
+                "contents": [
+                    {
+                        "text": "At our meeting with the founders, we were able to have a conversation about both the changes we made to the app and feedback about those changes. They praised certain elements of our design, most notably our flows that rewarded users for filling out their profile information with more customizable options. They also enjoyed our new feature that we titled \"party anthem\", which allows the users to put a song in their profile. However, they expressed that they would like the ability for the song to play continuously while the user was on the profile if that was possible. Interestingly enough, some of our concepts and designs were similar to features that the founders are working on or had considered before, including the idea of different tiers of mutuals (such as displaying the number of shared mutuals two users have). They were interested in the user research we conducted with our peers, and we discussed why users may be hesitant to fill out their profile information and Gen-Z disillusionment with emojis."
+                    }
+                ],
                 "full_images": [],
                 "inline_images": []
             }
