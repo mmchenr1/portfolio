@@ -168,7 +168,7 @@ const ContentComponent = ({ content }) => {
          {content.links && content.links.map((l, index) => (
           <a key={index} href={l.link} target="_blank" className="link clickable">
             <LinkIcon/>
-            {l.name}
+            <p>{l.name}</p>
           </a>
         ))}
       </div>

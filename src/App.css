@@ -223,20 +223,6 @@ h1{
   font-size: 28px;
 }
 
-.link{
-  background-color: var(--grey-color);
-  border-radius: 70px;
-  display: inline-flex;
-  width: fit-content;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  white-space: nowrap;
-  padding-left: 10px;
-  padding-right: 10px;
-  gap:10px;
-}
-
 .frameworks{
   font-size: var(--body-text-font-size);
   font-size: 24px;
@@ -454,21 +440,29 @@ h1{
     margin-bottom: 20px;
   }
   
-  .link {
-    display: inline-block;
+.link {
+  max-width: 40%;
+  background-color: var(--grey-color);
+  border-radius: 70px;
+  display: inline-flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  gap:10px;
+  text-decoration: unset !important;
+}
+
+  .link svg { /* assuming LinkIcon is an SVG */
+    margin-right: 5px; /* adjust the margin as needed */
+    vertical-align:baseline;
+  }
+
+  .link p{
     overflow: hidden;
     text-overflow: ellipsis;
     flex-wrap: nowrap;
     align-content: flex-start;
     white-space: nowrap;
-    max-width: 40%;
-
-    text-decoration: unset !important;
-  }
-
-  .link svg { /* assuming LinkIcon is an SVG */
-    margin-right: 5px; /* adjust the margin as needed */
-    vertical-align:baseline;
   }
 
   .link:hover{
