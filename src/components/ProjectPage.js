@@ -215,7 +215,7 @@ const Subsection = (props) => {
 
 const CollapsableSubsection = (props) => {
   const [isCollapsed, setIsCollapsed] = useState('collapsed');
-  const i = String(props.index).padStart(2, '0');
+  // const i = String(props.index).padStart(2, '0');
 
   return(
     <div className="project-subsection">
@@ -224,7 +224,7 @@ const CollapsableSubsection = (props) => {
           className={`collapse-button clickable ${isCollapsed ? 'collapsed' : 'expanded'}`}
           onClick={() => setIsCollapsed(!isCollapsed)}
         >
-          <h4 className="collapsable-header">{i}{title_spacing}{props.title}</h4>
+          <h4 className="collapsable-header">{props.title}</h4>
           {isCollapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
         </IconButton>
       </div>
