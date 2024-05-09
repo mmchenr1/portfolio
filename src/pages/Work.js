@@ -5,10 +5,7 @@ export default function Work() {
     return(
         <div id="work-page">
             <div id="home-header">
-            {/* <img id="home-image" src={require('../public/assets/home-image.jpg')}></img> */}
-            {/* placeholder for now */}
-            {/* <img id="home-image" ></img> */}
-
+                
             <svg style={{ position: 'absolute', width: 0, height: 0, overflow: 'hidden' }}>
             {/* Define the clip path using an SVG image */}
             <defs>

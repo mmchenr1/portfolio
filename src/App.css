@@ -49,6 +49,7 @@
   --body-text-font-size: 20px;
 
   --h4-offset: 60px;
+  --side-margin: 100px;
 }
 
 *{
@@ -77,7 +78,8 @@ p,ol{
 
 /* NAVBAR STYLING */
 #navbar{
-  font-size: 32px;
+  /* font-size: 32px; */
+  font-size: var(--med-font-size);
   width: 100%;
   height: 84px;
   display: flex;
@@ -263,13 +265,11 @@ h1{
   }
 
   #project-contents{
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: var(--side-margin);
+    padding-right: var(--side-margin);
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-    /* height: fit-content; */
   }
 
   #project-contents p,ol{
@@ -425,8 +425,6 @@ h1{
     flex-direction: row;
     gap: 60px;
     align-items: center;
-    width: 100%;
-    /* flex-wrap: wrap; */
     justify-content: center;
   }
 
@@ -580,7 +578,7 @@ h1{
 /* FOOTER STYLING */
   #footer{
     width: 100%;
-    margin-top: 100px;
+    margin-top: var(--side-margin);
     background-color: var(--green-color);
     color: white;
     display: flex;
@@ -821,14 +819,43 @@ figcaption{
 }
 /* END SLIDESHOW CONTAINER STYLING */
 
+/* ABOUT PAGE STYLING */
+#about-page{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#about-contents{
+  padding-left: var(--side-margin);
+  padding-right: var(--side-margin);
+  display: flex;
+  flex-direction: row;
+}
+
+#about-text-blurb{
+  font-size: var(--body-text-font-size);
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+/* END ABOUT PAGE STYLING */
+
 
 
 @media (max-width: 1100px) {
-  .inline-contents{
+  :root{
+    --big-font-size: 45px;
+    --med-font-size: 28px;
+    --body-text-font-size: 20px;
+
+    --side-margin: 50px;
+  }
+
+  .inline-contents, #about-contents{
     flex-direction: column;
   }
 
-  img{
+  img {
     min-width: 350px !important;
   }
 }
