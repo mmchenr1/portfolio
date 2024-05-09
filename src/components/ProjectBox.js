@@ -18,11 +18,8 @@ export default function ProjectBox(props) {
                         {description_short}
                     </p>
                     
-                    <div className="tags">
-                        {frameworks.map((tag, index) => (
-                            <Tag key={index} tag={tag} />
-                        ))}
-                    </div>
+                    {frameworks && 
+                    <p className="frameworks">{frameworks.join(', ')}</p>}
                 </div>
             </div>
         </div>

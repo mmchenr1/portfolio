@@ -173,39 +173,40 @@ h1{
 .work-square{
   width: 458px;
   height: 368px;
-  background-color: #0086DD; /* placeholder for now */
+  background-color: var(--purple-color); /* placeholder for now */
   position: relative;
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-end;
 }
+
 .work-square-overlay{
   position: absolute;
   background-color: var(--dark-color);
   opacity: 0.4;
-  width: 100%;
-  height: 100%;
-  display: none;
+  width: 458px;
+  height: 368px;
+  /* display: none; */
   color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.work-square:hover .work-square-overlay {
+.overlay-contents{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  background-color: var(--dark-color);
+  opacity: 0.4;
+  width: 80%;
+  height: 80%;
+  opacity: 1 !important;
 }
 
 .work-square:hover{
   box-shadow: 5px 5px 20% rgba(0, 0, 0, 0.2);
-}
-
-.overlay-contents{
-  padding: 20px;
-  opacity: 1 !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin-top: auto; /* add this */
 }
 
 .overlay-contents p{
@@ -215,24 +216,14 @@ h1{
 
 .work-name{
   font-size: 40px;
+  padding-top: 30px;
 }
 
 .work-description{
   font-size: 28px;
 }
 
-.tags{
-  display: flex;
-  gap: 7px;
-  font-size: 24px;
-}
-
-.tag-text{
-  text-align: center;
-  font-size: var(--body-text-font-size);
-}
-
-.framework-tag,.link{
+.link{
   background-color: var(--grey-color);
   border-radius: 70px;
   display: inline-flex;
@@ -246,15 +237,9 @@ h1{
   gap:10px;
 }
 
-.work-square .framework-tag{
-  opacity: unset !important;
-  height: 49px;
-  min-width: 97px;
-}
-
-.work-square .framework-tag p{
-  color:black;
-  opacity: 1;
+.frameworks{
+  font-size: var(--body-text-font-size);
+  font-size: 24px;
 }
 /* END WORKS GRID STYLING */
 
