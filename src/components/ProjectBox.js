@@ -12,9 +12,9 @@ export default function ProjectBox(props) {
             <img src={props.cover_image.path} alt={props.cover_image.alt} className="work-square-image"/>
             <div className="work-square-overlay">
                 <div className="overlay-contents">
-                    <p className="work-name">
+                    <h3 className="work-name">
                         {name}
-                    </p>
+                    </h3>
                     <p className="work-description">
                         {description_short}
                     </p>

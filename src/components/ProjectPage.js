@@ -46,7 +46,7 @@ export default function ProjectBox(props) {
       </div>
 
       <div id="project-contents">
-        <h2 id="project-header">{project.name}</h2>
+        <h1 id="project-header">{project.name}</h1>
 
         <div id="proj-overview-section">
           {project.image_link ? (
@@ -67,14 +67,14 @@ export default function ProjectBox(props) {
           }
 
           <div id='proj-description-section'>
-            <h3>01{title_spacing}Project</h3>
+            <h2>01{title_spacing}Project</h2>
             <p>{project.description_long}</p>
           </div>
         </div>
 
         <div id="proj-info-nav-section">
           <div id="proj-info">
-            <h3>02{title_spacing}Info</h3>
+            <h2>02{title_spacing}Info</h2>
             <div id="info-contents">
               <p><b>Role:</b> { project.role}</p>
               {project.frameworks && <p><b>Frameworks:</b> {project.frameworks.join(', ')}</p>}
@@ -85,7 +85,7 @@ export default function ProjectBox(props) {
 
           <div id="proj-jump-to">
             <div id="proj-jump-to">
-              <h3>03{title_spacing}Jump To</h3>
+              <h2>03{title_spacing}Jump To</h2>
               <div id="jump-to-links">
                 {project.sections.map((section, index) => (
                   <a key={index} href={`#${section.title}`} onClick={() => scrollToSection(`section-${index + 4}`)}>
@@ -112,7 +112,7 @@ function Section(props) {
 
   return(
     <div className={sectionClass} id={`section-${props.i}`}>
-      <h3>{formattedIndex}{title_spacing}{props.title}</h3>
+      <h2>{formattedIndex}{title_spacing}{props.title}</h2>
       <div className="section-contents">
 
           <div className='inline-contents'>
@@ -197,7 +197,7 @@ const ContentComponent = ({ content }) => {
 const Subsection = (props) => {
   return(
     <div className="project-subsection">
-      <h4>{props.title}</h4>
+      <h3>{props.title}</h3>
       <div className={`subsection-contents`}>
 
           <div className='inline-contents'>
@@ -242,7 +242,7 @@ const CollapsableSubsection = (props) => {
           className={`collapse-button clickable ${isCollapsed ? 'collapsed' : 'expanded'}`}
           onClick={() => setIsCollapsed(!isCollapsed)}
         >
-          <h4 className="collapsable-header">{props.title}</h4>
+          <h3 className="collapsable-header">{props.title}</h3>
           {isCollapsed ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
         </IconButton>
       </div>

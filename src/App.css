@@ -48,7 +48,7 @@
   --med-font-size: 28px;
   --body-text-font-size: 20px;
 
-  --h4-offset: 60px;
+  --side-padding: 60px;
   --side-margin: 100px;
   --border-radius-img: 70px;
 }
@@ -168,6 +168,7 @@ img,video,.open-in-new-window-overlay{
 }
 #greeting-line2{
   font-size: 32px;
+  line-height: 1.5em;
 }
 
 #headshot{
@@ -179,10 +180,16 @@ img,video,.open-in-new-window-overlay{
 
 
 /* START WORKS GRID STYLING */
-h1{
+h1, #work-page h2, #footer h2{
   text-align: center;
   font-size: var(--big-font-size);
   font-weight: unset;
+}
+
+h3{
+  font-weight: unset;
+  margin-block-start: unset;
+  font-size: var(--body-text-font-size);
 }
 
 #work-section{
@@ -259,6 +266,7 @@ h1{
 .work-name{
   font-size: 40px;
   padding-top: 30px;
+  margin-block-end: unset;
 }
 
 .work-description{
@@ -321,14 +329,14 @@ h1{
     padding-bottom: 20px;
   }
 
-  h3{
+  #project-contents h2{
     border-bottom: solid var(--purple-color) 6px;
     font-weight: unset;
     margin-block-start: unset;
     font-size: var(--med-font-size);
   }
 
-  h4{
+  #project-contents h3{
     border-bottom: solid var(--pink-color) 6px;
     font-weight: unset;
     margin-block-start: unset;
@@ -545,8 +553,8 @@ h1{
   }
 
   .subsections-container{
-    padding-left: var(--h4-offset);
-    padding-right: var(--h4-offset);
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
     display: flex;
     flex-direction: column;
     gap: 30px;
@@ -606,7 +614,7 @@ h1{
     width: 100%;
     /* justify-content: space-between; */
   }
-  .subsection-toggle-header h4{
+  .subsection-toggle-header h3{
     width: 90%;
     margin-block: unset;
   }
@@ -626,6 +634,12 @@ h1{
     align-items: center;
     padding: 50px 80px 20px 80px;
     box-sizing: border-box;
+  }
+
+  #footer h2{
+    border-bottom: none;
+    margin-block-start: unset;
+    margin-block-end: unset;
   }
 
   #footer-icons{
@@ -661,8 +675,8 @@ h1{
 
 /* STYLE GUIDE STYLING */
 #partiful-style-guide{
-  padding-left: var(--h4-offset);
-  padding-right: var(--h4-offset);
+  padding-left: var(--side-padding);
+  padding-right: var(--side-padding);
   display: flex;
   flex-direction: column;
   gap: 60px;
@@ -867,20 +881,16 @@ figcaption{
   padding-right: var(--side-margin);
   display: flex;
   flex-direction: row;
-
 }
 
 #about-text-blurb{
   font-size: var(--body-text-font-size);
   display: flex;
   flex-direction: column;
-}
-
-#greeting-line2{
   line-height: 1.5em;
+  gap:1.5em;
 }
 /* END ABOUT PAGE STYLING */
-
 
 
 @media (max-width: 1100px) {

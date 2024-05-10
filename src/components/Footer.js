@@ -7,21 +7,21 @@ export default function Footer() {
     return(
         <div id="footer">
             {/* <div id="footer-contents"> */}
-                <p id="footer-message">Let's get in touch!</p>
+                <h2 id="footer-message">Let's get in touch!</h2>
                 <div id="footer-icons">
-                    <a href="mailto:molly_mchenry@brown.edu" target="_blank">
+                    <a href="mailto:molly_mchenry@brown.edu" target="_blank" alt="link to email me">
                         <IconButton class="clickable" aria-label="email">
                             <MailOutlineIcon/>
                         </IconButton>
                     </a>
 
-                    <a href="https://github.com/mmchenr1" target="_blank">
+                    <a href="https://github.com/mmchenr1" target="_blank" alt="link to my GitHub page">
                         <IconButton class="clickable" aria-label="github">
                             <GitHubIcon/>
                         </IconButton>
                     </a>
 
-                    <a href="https://www.linkedin.com/in/molly-mchenry-35a56b235/" target="_blank">
+                    <a href="https://www.linkedin.com/in/molly-mchenry-35a56b235/" target="_blank" alt="link to my LinkedIn profile">
                         <IconButton class="clickable" aria-label="linkedin">
                             <LinkedInIcon/>
                         </IconButton>

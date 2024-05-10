@@ -7,13 +7,13 @@ export default function Work() {
             <div id="home-header">         
                 <div id="home-banner-contents">
                     <div id="greeting-message">
-                        <p id="greeting-line1">Hi, I'm Molly!</p>
+                        <h1 id="greeting-line1">Hi, I'm Molly!</h1>
                         <p id="greeting-line2">Embedded software engineer and pilot who loves coffee, trees, and electronic aviation technology.</p>
                     </div>
                 </div>
             </div>
 
-            <h1>Work</h1>
+            <h2>Work</h2>
             <div id="work-section">
                 {work_data.map((project, index) => (
                     <ProjectBox i={index} {...project} />
