@@ -71,9 +71,7 @@ a{
 a:hover{
   text-decoration: underline solid var(--pink-color);
   text-decoration-thickness: 6px;
-  text-underline-offset: 1px;
 }
-
 
 p,ol{
   margin-block-start: unset;
@@ -83,6 +81,19 @@ p,ol{
 .clickable {
   cursor: pointer;
 }
+
+img,video,.open-in-new-window-overlay{
+  border-radius: var(--border-radius-img);
+}
+
+.music-aggregator-mockup, .music-aggregator-comparison-chart, .partiful-sketch, .icon{
+  border-radius: 0 !important;
+}
+
+.slideshow-container * {
+  border-radius: 40px; /* match border radius of iPhone frame */
+}
+
 
 /* NAVBAR STYLING */
 #navbar{
@@ -149,7 +160,7 @@ p,ol{
   flex-direction: column;
   text-wrap: wrap;
   align-items: flex-start;
-  gap: 8px;
+  gap: 1.5em;
 }
 
 #greeting-line1{
@@ -626,7 +637,6 @@ h1{
 
   #footer-message{
     font-size: var(--big-font-size);
-
   }
 
   Button{
@@ -864,14 +874,11 @@ figcaption{
   font-size: var(--body-text-font-size);
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
+}
+
+#greeting-line2{
   line-height: 1.5em;
 }
-
-#about-page img{
-  border-radius: var(--border-radius-img);
-}
-
 /* END ABOUT PAGE STYLING */
 
 
@@ -893,7 +900,7 @@ figcaption{
     min-width: 350px !important;
   }
 
-  .icon-item img{
+  .icon-item img, .slideImg{
     min-width: unset !important;
   }
 }

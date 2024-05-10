@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import { CookieSharp } from '@mui/icons-material';
 
 const Carousel = ({ items }) => {
   const [slideIndex, setSlideIndex] = useState(1);
@@ -57,14 +58,14 @@ function Slide(props) {
     return(
       <div className="mySlides fade">
       <video controls autoPlay muted>
-        <source src={props.video} type="video/mp4" />
+        <source src={props.video} type="video/mp4" alt={props.alt}/>
       </video>
     </div>
     )
   } else if(props.image){
     return(
       <div className="mySlides fade">
-        <img className="slideImg" src={props.image} />
+        <img className="slideImg" src={props.image} alt={props.alt} />
       </div>
     )
   } else {

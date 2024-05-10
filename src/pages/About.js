@@ -3,7 +3,7 @@ export default function About() {
         <div id="about-page">
             <h1>About</h1>
             <div id="about-contents" className="inline-contents">
-                <img id="about-img" src="../assets/personal-pic.jpg"></img>
+                <img id="about-img" src="../assets/personal-pic.jpg" alt="Me in the snow in RI, holding a snow heart"></img>
                 <div id="about-text-blurb">
                     <p>
                         I'm Molly McHenry, an embedded software engineer and pilot passionate about developing electronic aviation technology, centering on safety and intuitive design.

@@ -10,16 +10,13 @@ export default function Work() {
                         <p id="greeting-line1">Hi, I'm Molly!</p>
                         <p id="greeting-line2">Embedded software engineer and pilot who loves coffee, trees, and electronic aviation technology.</p>
                     </div>
-                    {/* <div id="headshot-container">
-                        <img id="headshot" src={require('../public/assets/placeholder.png')}></img>
-                    </div> */}
                 </div>
             </div>
 
             <h1>Work</h1>
             <div id="work-section">
                 {work_data.map((project, index) => (
-                    <ProjectBox key={index} {...project} />
+                    <ProjectBox i={index} {...project} />
                 ))}
             </div>
         </div>

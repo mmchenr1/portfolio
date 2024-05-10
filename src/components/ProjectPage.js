@@ -9,36 +9,36 @@ import IconButton from '@mui/material/IconButton';
 
 
 const title_spacing = "\u00A0\u00A0\u00A0";
+
 export default function ProjectBox(props) {
   const project = props.project;
   const [scrollProgress, setScrollProgress] = useState(0);
 
-useEffect(() => {
-  const handleScroll = () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight;
-    const clientHeight = document.documentElement.clientHeight;
-    const progressWidth = (scrollTop / (scrollHeight - clientHeight - 353)) * 100;
-    setScrollProgress(progressWidth);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight;
+      const progressWidth = (scrollTop / (scrollHeight - clientHeight - 353)) * 100;
+      setScrollProgress(progressWidth);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-  window.addEventListener('scroll', handleScroll);
+  const id_tag = project.name.replace(/\s+/g, '-');;
 
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-  };
-}, []);
-
-const scrollToSection = (id) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-console.log("hereeee");
-
-const id_tag = project.name.replace(/\s+/g, '-');;
-console.log(id_tag);
   return (
     <div id={id_tag} className="project-page">
       <div id="progress-bar-container">
@@ -51,14 +51,18 @@ console.log(id_tag);
         <div id="proj-overview-section">
           {project.image_link ? (
             <a id="cover-img-container">
-              <img id="cover-img" src={project.main_image} alt='image of ${project.name} final product'></img>
+              <img id="cover-img" className={`${id_tag}-img`}
+                src={project.main_image.path} 
+                alt={project.main_image.alt}/>
+
                 <a className="open-in-new-window-overlay"  href={project.image_link} target="_blank">
                   <OpenInNewIcon style={{ fontSize: 80 }} />
                 </a>
             </a>
           ) :
             <a id="cover-img-container">
-              <img id="cover-img" src={project.main_image} alt='image of ${project.name} final product'></img>
+              <img id="cover-img" className={`${id_tag}-img`}
+              src={project.main_image.path} alt={project.main_image.alt}></img>
             </a>
           }
 
@@ -94,7 +98,7 @@ console.log(id_tag);
         </div>
         
         {project.sections.map((section, index) => (
-          <Section key={index} i={index+4} {...section}/>
+          <Section key={index} i={index+4} {...section} id_tag={id_tag}/>
         ))}
 
       </div>
@@ -112,9 +116,13 @@ function Section(props) {
       <div className="section-contents">
 
           <div className='inline-contents'>
-            {props.inline_images && props.inline_images.map((image, index) => (
-              <img key={index} src={image}/>
-            ))}
+            {props.inline_images && props.inline_images.map((image, index) => {
+              const projectName = image.path.split('/')[2]; // extract the project name
+              const imgName = image.path.split('/')[3].split('.')[0]; // extract the image name
+              return (
+                <img key={index} src={image.path} className={`${projectName}-${imgName}`} alt={image.alt} />
+              );
+            })}
 
           {props.carousel && (
             <Carousel items={[...props.carousel]} />
@@ -122,7 +130,7 @@ function Section(props) {
 
           {props.inline_video && (
             <video controls autoPlay muted>
-              <source src={props.inline_video} type="video/mp4" />
+              <source src={props.inline_video.path} type="video/mp4" alt={props.inline_video.alt}/>
             </video>
           )}
 
@@ -136,9 +144,13 @@ function Section(props) {
             </div>
           </div>
 
-          {props.full_images && props.full_images.map((image, index) => (
-            <img key={index} src={image} className='full-img'/>
-          ))}
+          {props.full_images && props.full_images.map((image, index) => {
+            const projectName = image.path.split('/')[2]; // extract the project name
+            const imgName = image.path.split('/')[3].split('.')[0]; // extract the image name
+            return (
+              <img key={index} src={image.path} className={`full-img ${projectName}-${imgName}`} alt={image.alt} />
+            );
+          })}
 
           {props.title === "Style Guide" && <PartifulStyleGuide />}
 
@@ -149,37 +161,38 @@ function Section(props) {
 
 
 const ContentComponent = ({ content }) => {
-  if(content.text){
-    return <p className="proj-text-section">{content.text}</p>
-  } else if (content.list){
-    return(
-        <ol className="proj-list-section">
-          {content.list.map((l, i) => (
-            <li key={i}>{l}</li>
-          ))}
-        </ol>
-    )
-  } else if (content.links){
-    return(
+  if (content.text) {
+    return <p className="proj-text-section">{content.text}</p>;
+  } else if (content.list) {
+    return (
+      <ol className="proj-list-section">
+        {content.list.map((l, i) => (
+          <li key={i}>{l}</li>
+        ))}
+      </ol>
+    );
+  } else if (content.links) {
+    return (
       <div className="links-container">
-         {content.links && content.links.map((l, index) => (
-          <a key={index} href={l.link} target="_blank" className="link clickable">
-            <LinkIcon/>
+        {content.links && content.links.map((l, index) => (
+          <a key={`${content}-${index}`} href={l.link} target="_blank" className="link clickable">
+            <LinkIcon />
             <p>{l.name}</p>
           </a>
         ))}
       </div>
-    )
-  } else if (content.subsections){
-    return(
+    );
+  } else if (content.subsections) {
+    return (
       <div className="subsections-container">
         {content.subsections && content.subsections.map((item, index) => (
-          <CollapsableSubsection {...item} index={index}/>
+          <CollapsableSubsection key={`${content}-${index}`} {...item} i={index} />
         ))}
-      </div >
-    )
+      </div>
+    );
   }
-}
+};
+
 
 const Subsection = (props) => {
   return(
@@ -188,9 +201,13 @@ const Subsection = (props) => {
       <div className={`subsection-contents`}>
 
           <div className='inline-contents'>
-            {props.inline_images && props.inline_images.map((image, index) => (
-              <img key={index} src={image}/>
-            ))}
+          {props.inline_images && props.inline_images.map((image, index) => {
+              const projectName = image.path.split('/')[2]; // extract the project name
+              const imgName = image.path.split('/')[3].split('.')[0]; // extract the image name
+              return (
+                <img key={index} src={image.path} className={`${projectName}-${imgName}`} alt={image.alt} />
+              );
+            })}
 
             <div className="section-text">
               {props.contents && props.contents.map((content, index) => (
@@ -199,9 +216,13 @@ const Subsection = (props) => {
             </div>
           </div>
 
-          {props.full_images && props.full_images.map((image, index) => (
-            <img key={index} src={image} className='full-img'/>
-          ))}
+          {props.full_images && props.full_images.map((image, index) => {
+            const projectName = image.path.split('/')[2]; // extract the project name
+            const imgName = image.path.split('/')[3].split('.')[0]; // extract the image name
+            return (
+              <img key={index} src={image.path} className={`full-img ${projectName}-${imgName}`} alt={image.alt} />
+            );
+          })}
 
           {props.title === "Style Guide" && <PartifulStyleGuide />}
 
@@ -215,7 +236,7 @@ const CollapsableSubsection = (props) => {
   // const i = String(props.index).padStart(2, '0');
 
   return(
-    <div className="project-subsection">
+    <div className="project-subsection" key={props.i}>
       <div className="subsection-toggle-header">
         <IconButton
           className={`collapse-button clickable ${isCollapsed ? 'collapsed' : 'expanded'}`}
@@ -229,9 +250,13 @@ const CollapsableSubsection = (props) => {
       <div className={`subsection-contents collapse-content ${isCollapsed ? 'collapsed' : 'expanded'}`}>
 
           <div className='inline-contents'>
-            {props.inline_images && props.inline_images.map((image, index) => (
-              <img key={index} src={image}/>
-            ))}
+            {props.inline_images && props.inline_images.map((image, index) => {
+              const projectName = image.path.split('/')[2]; // extract the project name
+              const imgName = image.path.split('/')[3].split('.')[0]; // extract the image name
+              return (
+                <img key={index} src={image.path} className={`${projectName}-${imgName}`} alt={image.alt} />
+              );
+            })}
 
             <div className="section-text">
               {props.contents && props.contents.map((content, index) => (
@@ -240,9 +265,13 @@ const CollapsableSubsection = (props) => {
             </div>
           </div>
 
-          {props.full_images && props.full_images.map((image, index) => (
-            <img key={index} src={image} className='full-img'/>
-          ))}
+          {props.full_images && props.full_images.map((image, index) => {
+            const projectName = image.path.split('/')[2]; // extract the project name
+            const imgName = image.path.split('/')[3].split('.')[0]; // extract the image name
+            return (
+              <img key={index} src={image.path} className={`full-img ${projectName}-${imgName}`} alt={image.alt} />
+            );
+          })}
 
           {props.title === "Style Guide" && <PartifulStyleGuide />}
 

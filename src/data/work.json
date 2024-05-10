@@ -5,20 +5,27 @@
         "timeline": "2.5 months",
         "role": "Creator, System Engineer, Embedded Software Engineer",
         "description_short": "a homemade version of Guitar Hero built with three MCUs",
-        "description_long": "Arduino Hero is a homemade version of Guitar Hero, built using Arduino MCUs. It features a custom LED screen and LCD screen controlled by one Arduino MKR1000, a game controller with another MKR1000, and a music player enabled by an Arduino Uno with a music shield. To play Arduino Hero, strum the console bar while pressing the colored buttons on the controller in time with the music and the corresponding notes moving down the LED screen. Players can chose from a selection of songs and view their stats after gameplay ends.",
+        "description_long": "Arduino Hero is a homemade version of Guitar Hero, built using Arduino MCUs. It features a custom LED screen and LCD screen controlled by one Arduino MKR1000, a game controller with another MKR1000, and a music player enabled by an Arduino Uno with a music shield. To play Arduino Hero, strum the console bar while pressing the colored buttons on the controller in time with the music and the corresponding notes moving down the LED screen. Players can choose from a selection of songs and view their stats after gameplay ends.",
         "route": "/ArduinoHero",
-        "cover_image": "../assets/arduino-hero/arduino-cover.png",
-        "main_image": "../assets/arduino-hero/arduino-cover.png",
+        "cover_image": {
+            "path": "../assets/arduino-hero/arduino-cover.png",
+            "alt": "Image of the system, with LED box, red guitar console, and LCD screen"
+        },
+        "main_image": {
+            "path": "../assets/arduino-hero/arduino-cover.png",
+            "alt": "Image of the system, with LED box, red guitar console, and LCD screen"
+        },
+        "image_link": "https://github.com/NicholasBottone/ArduinoHero",
         "collaborators": "Serena Pulopot, Patrick Ortiz, Nick Bottone, & David Fryd",
         "sections": [
             {
                 "title": "Ideation",
                 "contents": [
                     {
-                        "text": "To start this project, me and a group of friends had the idea to build a fun video game. The idea was to create an embedded system from scratch, using 3D printed materials, wiring, MCUs, and extraneous parts. To accomplish this, we began the development cycle of this embedded system with thorough planning, beginning with defining the system conceptually and then writing formal rule and requirements. As we worked, we created a manual outlining the system to faciliate collaborative development, traceability, system definition, and a smoother integration process."
+                        "text": "To start this project, me and a group of friends had the idea to build a fun video game. The idea was to create an embedded system from scratch, using 3D printed materials, wiring, MCUs, and extraneous parts. To accomplish this, we began the development cycle of this embedded system with thorough planning, beginning with defining the system conceptually and then writing formal rules and requirements. As we worked, we created a manual outlining the system to facilitate collaborative development, traceability, system definition, and a smoother integration process."
                     },
                     {
-                        "text": "We defined the system to be a single-player game, where a player can select a song from the start menu, triggering a three second countdown. Following this countdown, the music starts and LED notes move down the gameboard in time with the song. A player tries to play the corresponding notes, indicated by color, on the guitar console while strumming the console bar. A player's score, combo, and maximum combo are recorded. Once the song ends, a game over screen is displayed along with scoring data. A player can then choose another song and repeat the cycle."
+                        "text": "We defined the system as a single-player game where a player can select a song from the start menu, triggering a three-second countdown. Following this countdown, the music starts, and LED notes move down the gameboard in time with the song. A player tries to play the corresponding notes, indicated by color, on the guitar console while strumming the console bar. A player's score, combo, and maximum combo are recorded. Once the song ends, a game over screen is displayed along with scoring data. A player can then choose another song and repeat the cycle."
                     },
                     {
                         "links": [
@@ -34,7 +41,7 @@
                 "title": "Requirements and Architecture",
                 "contents": [
                     {
-                        "text": "After defining the system conceptually from a user's point of view, I created formal rules and requirements for the system. The full list can be found in the manual. I created these requirements with the intention of defining the full cycle of gameplay, accounting for edge cases such as software hangs and note scoring latency."
+                        "text": "After defining the system conceptually from a user's point of view, I created formal rules and requirements for the system, which can be found in the manual. These requirements define the complete cycle of gameplay, accounting for edge cases such as software hangs and note-scoring latency. Concurrently, my co-developers created architecture diagrams to specify the hardware framework of the system."
                     }
                 ],
                 "full_images": [],
@@ -43,29 +50,32 @@
                 "title": "State Machine",
                 "contents": [
                     {
-                        "text": "Next, I created a finite state machine for the Arduino MKR1000 attached to the LED matrix and LCD screen. This MCU controls the gamelogic and sends messages to the peripheral console and music player. I used the architecture diagram created by one of my co-developers to inform this process. Refer to the manual for descriptions of the transitions labelled in the diagram."
+                        "text": "Next, I created a finite state machine for the Arduino MKR1000 attached to the LED matrix and LCD screen. This MCU controls the game logic and sends messages to the peripheral console and music player. I used the architecture diagram created by one of my co-developers to inform this process. Refer to the manual for descriptions of the transitions labeled in the diagram."
                     },
                     {
-                        "text": "I also created a traceability matrix that maps the rule and requirements to each of the guards and transitions in the state machine. This traceability matrix ensured that all of the system requirements were accounted for and also was a useful reference when writing test cases."
+                        "text": "I also created a traceability matrix that maps the rules and requirements to each of the guards and transitions in the state machine. This traceability matrix ensured that all system requirements were accounted for and served as a useful reference when writing test cases."
                     }
                 ],
                 "full_images": [],
-                "inline_images": ["../assets/arduino-hero/state-machine.png"]
+                "inline_images": [{
+                    "path": "../assets/arduino-hero/state-machine.png",
+                    "alt": "state machine diagram with states and labeled adges between them"
+                }]
             }, {
                 "title": "Guitar Console Assembly",
                 "contents": [
                     {
-                        "text": "After wrapping our planning stage, we began to assemble the hardware. I collaborated with one of my co-developers to build the controller using a 3D printed body featuring buttons soldered to wires that run down the neck of the guitar, attaching to the MKR1000 located in the body. In total, there are seven buttons on the console. Five are in the bridge of the guitar, each corresponding to a color of note, and two in the body that are pressed by pushing the strum bar either up or down."
-                    },
-                    {
-                        "text": "I quickly began writing code to get user input, package it, and send it to the gameboard MCU to be processed in the game logic. First, I wrote a short program that triggers an interrupt when one of the buttons touching the strum bar is pressed. The ISR then polls all seven buttons and creates a byte, populating seven bits according to the buttons pressed. Each button corresponds to one of the bits in the byte and is set to '1' if the button is held down at the time that the interrupt was triggered."
+                        "text": "After wrapping up the planning stage, we began to assemble the hardware. I collaborated with one of my co-developers to build the controller using a 3D-printed body featuring buttons soldered to wires that run down the neck of the guitar, attaching to the MKR1000 located in the body. In total, there are seven buttons on the console. Five are in the bridge of the guitar, each corresponding to a color of note, and two in the body that are pressed by pushing the strum bar either up or down."
                     },
                     {
                         "text": "I quickly began writing code to get user input, package it, and send it to the gameboard MCU to be processed in the game logic."
                     }
                 ],
                 "full_images": [],
-                "inline_images": ["../assets/arduino-hero/guitar-guts.png"]
+                "inline_images": [{
+                    "path": "../assets/arduino-hero/guitar-guts.png",
+                    "alt": "guitar console without lid, exposing wires, buttons, and breadboard with MCU"
+                }]
             },{
                 "title": "Guitar Controller Software",
                 "contents": [
@@ -73,10 +83,13 @@
                         "text": "First, I wrote a short program that triggers an interrupt when one of the buttons touching the strum bar is pressed. The ISR then polls all seven buttons and creates a byte, populating seven bits according to the buttons pressed. Each button corresponds to one of the bits in the byte and is set to '1' if the button is held down at the time that the interrupt was triggered."
                     },
                     {
-                        "text": "This byte is then passed to a subroutine which manually sending it via UART. We chose to multiplex two pins on the gameboard MKR1000 for UART communication with the controller because we were worried about latency issues in communication between the music player and gameboard arduino, so we reserved the RX and TX pins to run hardware UART communication between those MCUs."
+                        "text": "This byte is passed to a subroutine that manually sends it to the gameboard Arduino via UART. We chose to multiplex two pins on the gameboard MKR1000 for UART communication with the controller because we were worried about latency issues in communication between the music player and gameboard Arduino, so we reserved the RX and TX pins to run hardware UART communication between those MCUs."
                     }
                 ],
-                "full_images": ["../assets/arduino-hero/uart-bus.png"],
+                "full_images": [{
+                    "path": "../assets/arduino-hero/uart-bus.png",
+                    "alt": "UART bus diagram showing a start bit, seven data bits, and a parity bit"
+                }],
                 "inline_images": []
             }, 
              {
@@ -91,7 +104,7 @@
                                 "title": "Controller-Gameboard Integration",
                                 "contents": [
                                     {
-                                        "text": "To integrate the manual UART protocol I created, I wrote software for the gameboard to receive the UART bus sent from the controller. This functionality is in an ISR that is triggered when the receiving pin drop to a low signal, since I used a idle-high framework. This ISR then receives the byte, checks it for corruption via parity, and uses it in the game logic if uncorrupted."
+                                        "text": "To integrate the manual UART protocol I created, I wrote software for the gameboard to receive the UART bus sent from the controller. This functionality is in an ISR that is triggered when the receiving pin drops to a low signal since I used an idle-high framework. This ISR then receives the byte, checks it for corruption via parity, and uses it in the game logic if uncorrupted."
                                     },
                                     {
                                         "text": "This integration process was very smooth, which I attribute to the planning done before we touched hardware or software."
@@ -102,10 +115,10 @@
                                 "title": "Music Player-Gameboard Integration",
                                 "contents": [
                                     {
-                                        "text": "Integrating the Arduino Uno with the music shield to the gameboard was a more difficult task. We used the RX and TX pins on both MCUs to facilitate hardware UART comminication, where the gameboard MCU sends signals to start one of the tracks or to stop the music."
+                                        "text": "Integrating the Arduino Uno with the music shield to the gameboard was a more difficult task. We used the RX and TX pins on both MCUs to facilitate hardware UART communication, where the gameboard MCU sends signals to start one of the tracks or to stop the music."
                                     },
                                     {
-                                        "text": "We debugged this process by creating testing pathways in the sending and receiving code to only run the core functionality to the communication protocol and using the serial monitor to view the bits being received/sent on both ends. Eventually, through manual testing we found the bug and succesfully integrated these components."
+                                        "text": "We debugged this process by creating testing pathways in the sending and receiving code to only run the core functionality of the communication protocol and using the serial monitor to view the bits being received/sent on both ends. Eventually, through manual testing, we found the bug and successfully integrated these components."
                                     }
                                 ]
                             }
@@ -123,7 +136,10 @@
                 ],
                 "full_images": [],
                 "inline_images": [],
-                "inline_video": "../assets/arduino-hero/arduino_hero_demo.mp4"
+                "inline_video": {
+                    "path": "../assets/arduino-hero/arduino_hero_demo.mp4",
+                    "alt": "video of a user playing Boulevard of Broken Dream by Green Day on Arduino Hero"
+                }
             }, {
                 "title": "Testing",
                 "contents": [
@@ -131,7 +147,7 @@
                         "text": "Throughout the software development process, we performed many manual tests on our components. I created testing pathways in the guitar controller code, state machine code, and integration modules while developing to facilitate manual testing iterations."
                     },
                     {
-                        "text": "To wrap up our development, we wrote white box tests for each of the transitions/guards in the finite state machine and also black box testing on the rules and requirements of the system. The white box tests relied on mocked out functions of LCD output to compare to expected system behavior. We recorded all of the tests in a spreadsheet that maps test cases, requirements, variables, and the status of the test."
+                        "text": "To wrap up developement, we wrote white box tests for each of the transitions/guards in the finite state machine and also black box testing on the rules and requirements of the system. The white box tests relied on mocked-out functions of LCD output to compare to expected system behavior. We recorded all of the tests in a spreadsheet that maps test cases, requirements, variables, and the status of the test."
                     }
                 ],
                 "full_images": [],
@@ -158,15 +174,21 @@
     },
     {
         "name": "Music Aggregator",
-        "frameworks": ["HTML","React.js", "CSS"],
+        "frameworks": ["HTML", "React.js", "CSS"],
         "timeline": "2 weeks",
         "role": "Designer, Frontend Developer",
         "description_short": "song aggregator with filtering and sorting",
-        "description_long": "I designed an interface that allows users to filter, sort, and favorite songs and then view their favorited songs in an aggregator. In designing the interface, I first analyzed and compared three desktop music platforms with these features: Spotify, Deezer, and Youtube Music. I then took my findings and created my interface using React.js.",
+        "description_long": "I designed an interface that allows users to filter, sort, and favorite songs and then view their favorite songs in an aggregator. In designing the interface, I first analyzed and compared three desktop music platforms with these features: Spotify, Deezer, and YouTube Music. I then took my findings and created my interface using React.js.",
         "route": "/MusicAggregator",
-        "cover_image": "../assets/music-aggregator/music-aggregator-cover.png",
-        "main_image": "../assets/music-aggregator/my-design.png",
-        "collaborators": "",
+        "cover_image": {
+            "path": "../assets/music-aggregator/music-aggregator-cover.png",
+            "alt": "Desktop screen with my music aggregator site"
+        },
+        "main_image":  {
+            "path": "../assets/music-aggregator/my-design.png",
+            "alt": "Desktop screen with my music aggregator site"
+        },
+        "collaborators": "", 
         "image_link": "https://uiux-development.vercel.app/",
         "sections": [
             {
@@ -176,7 +198,10 @@
                         "text": "First, I analyzed similar platforms that offer music favoriting and aggregation, along with filtering and sorting options. I compiled my findings into a competitive comparison chart to identify what features I want to include in my design."
                     }
                 ],
-                "full_images": ["../assets/music-aggregator/comparison-chart.png"],
+                "full_images": [{
+                    "path": "../assets/music-aggregator/comparison-chart.png",
+                    "alt": "Comparison chart of Spotify, Deezer, and YouTube Music favoriting, sorting, and filtering functionalities"
+                }],
                 "inline_images": []
             },
             {
@@ -199,11 +224,11 @@
             {
                 "title": "Ideation",
                 "contents": [
-                    {"text": "From the above competitive analysis, I created the following list of factors and designs to incorporate in my own design:"},
+                    {"text": "From the above competitive analysis, I created the following list of factors and designs to incorporate in my design:"},
                     {"list": ["Sorting both within discoverable items and within the aggregator", "Hovering over an item shows favorite button (Spotify)",
-                        "Delay after unfavoriting an item before it's removed from the aggregator to allow user to refavorite",
-                        "Filtering by categories common to items (Youtube Music). In the context of songs, I'd like to expand this to allow for multiple genre filters to be available at once in order to capture more niche sub-genres and cross-genre spaces.",
-                        "I'd like to incorporate at least one sort based on the qualities of a song... i.e. if a song is happy or mellow. This will hopefully help users not just sort songs based on their titles or lenght, but also based on the contents of the songs themselves.",
+                        "Delay after unfavoriting an item before it's removed from the aggregator to allow the user to re-favorite",
+                        "Filtering by categories common to items (Youtube Music). In the context of songs, I'd like to expand this to allow for multiple genre filters to be available at once to capture more niche sub-genres and cross-genre spaces.",
+                        "I want to incorporate at least one sort based on the qualities of a song (for example, if a song is happy or mellow). This feature will hopefully help users not just sort songs based on their titles or length, but also based on the contents of the songs themselves.",
                         "Liking a song takes a single click",
                         "Hovering and button clicks show extraneous information rather than having it visible at all times for each song"]
                     }
@@ -215,27 +240,33 @@
                 "title": "Low Fidelity Wireframe",
                 "contents": [
                     {
-                        "text": "Using these ideas, I created a very basic sketch in Figma of the general layout of my page. I created my design with the intention of allowing users to easily navigate a song discovery panel by having the option to filter and sort. Note that the information necessary to the filters is intended to be displayed in a popup once the user hits the info button on the item card. Also of note, I elected to only feature sorting in the aggregator because the filter bubbles take up a significant amount of vertical space and make the section look cluttered."
+                        "text": "Using these ideas, I created a basic sketch in Figma of the general layout of my page. I created my design to allow users to easily navigate a song discovery panel by having the option to filter and sort. Note that the information necessary for the filters is intended to be displayed in a popup once the user hits the info button on the item card. Also, I elected to only feature sorting in the aggregator because the filter bubbles take up a significant amount of vertical space and make the section look cluttered."
                     }
                 ],
                 "full_images": [],
-                "inline_images": ["../assets/music-aggregator/mockup.png"]
+                "inline_images": [{
+                    "path": "../assets/music-aggregator/mockup.png",
+                    "alt": "Low fidelity wireframe featuring an explore panel with songs displayed by cover art and a favorites aggregator panel with the list of favorited songs"
+                }]
             },
             {
                 "title": "Development",
                 "contents": [
                     {
-                        "text": "From this wireframe, I then began coding! I created a React.js web application and dynamically updated liked song histories and filtered/sorted song lists. Additionally, I used the Spotify API to retrieve song data for the song bank used in this web app. Filtering options were chosen based on my previous compeitive analysis and the data available through the API."
+                        "text": "From this wireframe, I then began coding! I created a React.js web application and dynamically updated liked song histories and filtered/sorted song lists. Additionally, I used the Spotify API to retrieve song data for the song bank used in this web app. I chose the filtering options based on my previous competitive analysis and the data available through the API."
                     }
                 ],
-                "full_images": ["../assets/music-aggregator/my-design.png"],
+                "full_images": [{
+                    "path": "../assets/music-aggregator/my-design.png",
+                    "alt": "Finished site with explore panel and favorite songs aggregator panel"
+                }],
                 "inline_images": []
             },
             {
                 "title": "Takeaways",
                 "contents": [
                     {
-                        "text": "Through this project I learned to balance information necessary for sorting, filtering, and aggregation with good design so that the page doesn't become cluttered and visually overwhelming for users. I also learned the considerations competing song aggregators have to keep in mind when presenting information and interfaces to users."
+                        "text": "Through this project, I learned to balance information necessary for sorting, filtering, and aggregation with good design so that the page doesn't become cluttered and visually overwhelming for users. I also learned the considerations competing song aggregators have to be mindful of when presenting information and interfaces to users."
                     }
                 ],
                 "full_images": [],
@@ -251,15 +282,21 @@
         "description_short": "feature design for Partiful mobile app profile pages",
         "description_long": "I worked with Partiful, a startup party planning app, and a team of developers to design new features aimed at boosting user engagement with profiles.",
         "route": "/PartifulProfileDesign",
-        "cover_image": "../assets/partiful/partiful-cover.png",
-        "main_image":  "../assets/partiful/partiful-cover.png",
+        "cover_image":  {
+            "path":"../assets/partiful/partiful-cover.png",
+            "alt": "Phone screen with completed Partiful profile"
+        },
+        "main_image": {
+            "path": "../assets/partiful/partiful-cover.png",
+            "alt": "Phone screen with completed Partiful profile"
+        },
         "collaborators": "Sita Pawar, Andy Burris, & Grace Miller",
         "sections": [
             {
                 "title": "The Task",
                 "contents": [
                     {
-                        "text": "We teamed up with Partiful, an event invitation platform, to design features that encourage users to fill out their profiles. Over the timeline of this project, we conferenced with Partiful team members and interatively designed as we received feedback."
+                        "text": "We teamed up with Partiful, an event invitation platform, to design features that encourage users to fill out their profiles. Over the timeline of this project, we conferenced with Partiful team members and iteratively designed as we received feedback."
                     },
                     {
                         "text":  "For more information about Partiful and the specifics of our work, check out the links below."
@@ -287,48 +324,54 @@
                         "text": "We started our design process by sketching ideas for different flows. Each developer chose two flows to sketch, adding new features. The first flow I sketched was how users can view people's profiles from the RSVP list for an event. I also sketched a flow for how users can view and interact with a list of mutuals on other's profiles."
                     },
                     {
-                        "text":  "In these sketches I had a few initial ideas to incentivize users to fill our profile information:"
+                        "text":  "In these sketches, I had a few initial ideas to incentivize users to fill out profile information:"
                     },
                     {
                         "list": [
-                            "Including a \"Party Anthem\" as a fun field to include in a profile. This fills up empty space and is a fun, personal way to show personality.",
+                            "Including a \"Party Anthem\" as a fun field to include in a profile. This fills up space and is a fun, personal way to show personality.",
                             "\"Bestie Alerts\" to encourage users to view another profile. This feature demonstrates a fun effect and background on the profile, which users may want to unlock themselves by completing their profile.",
-                            "I explored friending, but had many concerns about what this feature means for users since Partiful doesn't support messaging or exploring profiles."
+                            "I explored friending but had many concerns about what this feature means for users since Partiful doesn't support messaging or exploring profiles."
                         ]
                     },
                     {
-                        "text":  "The other designers also made sketches with ideas for verified badges on fully completed profiles, horiscope birthdays, and popups to prompt users to add information to their profiles."
+                        "text":  "The other designers also made sketches with ideas for verified badges on fully completed profiles, horoscope birthdays, and popups to prompt users to add information to their profiles."
                     }
                 ],
                 "full_images": [],
-                "inline_images": ["../assets/partiful/sketch.png"]
+                "inline_images": [{
+                    "path": "../assets/partiful/sketch.png",
+                    "alt": "handrawn sketches for flows of viewing profiles from event RSVP list"
+                }]
             },
             {
                 "title": "Wireframes",
                 "contents": [
                     {
-                        "text": "From here, we compiled the sketches into some initial wireframes. We drew inspiration from our sketches pulling from the verified sign on profiles, more customization options, and different ways to build out the mutuals features. Our primary objective was incentivizing users to complete their profile with a photo and more information. We focused on two avenues to achieve this:"
+                        "text": "From here, we compiled the sketches into some initial wireframes. We drew inspiration from our sketches, pulling from the verified sign-on profiles, more customization options, and different ways to build out the mutual features. Our primary objective was incentivizing users to complete their profile with a photo and more information. We focused on two avenues to achieve this:"
                     },
                     {
                         "list": [
                             "Adding more calls to action and paths to direct users towards editing their profile",
-                            "Emphasizing the social connectivity of the platform with the assumption that if you feel like people are actually looking at your profile, you are more likely to care about how it looks."
+                            "Emphasizing the social connectivity of the platform with the assumption that if you feel like people are looking at your profile, you are more likely to care about how it looks."
                         ]
                     },
                     {
-                        "text": "For our first objective we added more customizable features since we believe that if people want to edit or fill out one feature on their profile they are more likely to fill out more things since they are already on their profile. Some new features we designed to achieve this included:"
+                        "text": "For our first objective, we added more customizable features since we believe that if people want to edit or fill out one feature on their profile, they are more likely to fill out more things since they are already on their profile. Some new features we designed to achieve this included:"
                     },
                     {
                         "list": [
                             "\"Party anthem\" module on the profile page. A fun feature that can help bring people to the edit profile page",
-                            "Rebranding birthday month as horoscope on profile page. This feels less revealing of personal info and is more interesting to know",
-                            "Adding complete check mark on profile that can unlock new customization features",
-                            "Including buttons prompting the user to add socials by default when viewing the user's own profile",
-                            "Add new customization options for profile background (similar to event page)"
+                            "Rebranding birthday month as horoscope on profile page. This modification from displaying birth months feels less revealing of personal info and is more interesting to know",
+                            "Adding complete check mark on the profile that can unlock new customization features",
+                            "Including buttons prompting the user to add socials by default when viewing the user's profile",
+                            "Add new customization options for profile background (similar to the event page)"
                         ]
                     }
                 ],
-                "full_images": ["../assets/partiful/initial_wireframe.png"],
+                "full_images": [{
+                    "path": "../assets/partiful/initial_wireframe.png",
+                    "alt": "Low fidelity wireframes of guest list, mutual, and profile card screens"
+                }],
                 "inline_images": []
             },
             {
@@ -342,17 +385,17 @@
                     },
                     {
                         "list": [
-                            "No one we talked to had filled out their profile", 
-                            "Many people didn't even realize they had a profile or didn't remember ever being prompted to add a photo",
-                            "They didn't understand why adding more information was necessary"
+                            "No one we talked to had filled out their profile.", 
+                            "Many people didn't even realize they had a profile or didn't remember ever being prompted to add a photo.",
+                            "They didn't understand why adding more information is necessary."
                         ]
                     },
                     {
-                        "text": "When we asked about reasons people could be more compelled to include more information some prominent responses included:"
+                        "text": "When we asked about reasons people could be more compelled to include more information, prominent responses included:"
                     },
                     {
                         "list": [
-                            "If photos were required in order to see the guest list/reply. Or if other important features were blocked - however \"this would be super annoying\"",
+                            "If photos were required to see the guest list/reply, or if other important features were blocked - however \"this would be super annoying\".",
                             "If they had a good reason. We discussed framing socials as a way to connect with people after a party and emphasizing the importance of photos for identifying people who are coming",
                             "If everyone else had a photo/filled out profile"
                         ]
@@ -363,11 +406,13 @@
                 "title": "Wireframe Revision",
                 "contents": [
                     {
-                        "text": "After creating our initial wireframes, we collected feedback from user interviews, peers, and our contacts at Partiful. We then incorporated this feedback to improve our wireframes. Most of the changes centered around sizing—we removed elements that would have too small touch targets, and column layouts that wouldn't work with smaller screen sizes. We also reprioritized what the most important information to show in each view was, and removed info that was overwhelming."
+                        "text": "After creating our initial wireframes, we collected feedback from user interviews, peers, and our contacts at Partiful. We then incorporated this feedback to improve our wireframes. Most of the changes centered around sizing—we removed elements with too small touch targets and column layouts that wouldn't work with smaller screen sizes. We also reprioritized the most important information to show in each view and removed overwhelming info."
                     }
                 ],
-                "full_images": ["../assets/partiful/revised_wireframe.png"]
-
+                "full_images": [{
+                    "path": "../assets/partiful/revised_wireframe.png",
+                    "alt": "Revised low fidelity wireframes of viewing own profile and profile card from and event guest list"
+                }]
             },
             {
                 "title": "High Fidelity Wireframes",
@@ -396,7 +441,7 @@
                             "title": "Complete check marks",
                             "contents": [
                                 {
-                                    "text": "Everyone wants the verified blue checkmark on social media platforms like Instagram or Twitter, so we decided to leverage this motivation to incentivize users to complete their profiles. Once a profile is completely filled out, users get a yellow checkmark icon that appears next to their name."
+                                    "text": "Everyone wants the verified blue checkmark on social media platforms like Instagram or Twitter, so we decided to leverage this motivation to incentivize users to complete their profiles. Once a profile is completed, users get a yellow checkmark icon next to their name."
                                 }
                             ]
                         },
@@ -404,7 +449,7 @@
                             "title": "Gatekeeping socials",
                             "contents": [
                                 {
-                                    "text": "Users can't see other user's linked socials unless they have added socials themselves. This incentivizes users to avoid missed connections from parties by adding socials so partiers can get in touch."
+                                    "text": "Users can't see other user's linked socials unless they have added socials themselves. \"Gatekeeping\" this social media feature incentivizes users to avoid missed connections from parties by adding socials so partiers can get in touch."
                                 }
                             ]
                         },
@@ -412,7 +457,7 @@
                             "title": "Updated edit profile flow",
                             "contents": [
                                 {
-                                    "text": "We added a progress bar to show how complete a user's profile is. This can help inform the user that there still things for them to complete, and to incentive users's to fill up the bar.."
+                                    "text": "We added a progress bar to show how complete a user's profile is. This can help inform the user that there are still things to complete and incentivize them to fill up the bar.."
                                 }
                             ]
                         },
@@ -428,20 +473,20 @@
                             "title": "Pop-ups",
                             "contents": [
                                 {
-                                    "text": "We believe that adding more prompts with compelling reasons for users to add information will increase the completion of profiles. Adding fun pop-ups can remind the user that they haven't completed their profile while still allowing for easy dismissal in order not to be a burden. Our pop-ups also provide a reason for why Partiful is asking for this information."
+                                    "text": "We believe that adding more prompts with compelling reasons for users to add information will increase the completion of profiles. Adding fun pop-ups can remind the user that they haven't completed their profile while still allowing for easy dismissal. Our pop-ups also provide a reason for why Partiful is asking for this information."
                                 }
                             ]
                         },
                         {
                             "title": "Customizable background",
                             "contents": [{
-                                "text": "Once a user completes all the information from their profile, they unlock customizable backgrounds and particles effects, similar to the events page. The idea is that users will enjoy the fun customization, and therefore be incentivized to complete their profiles."
+                                "text": "Once a user completes all the information from their profile, they unlock customizable backgrounds and particle effects, similar to the events page. The idea is that users will enjoy the fun customization and therefore be incentivized to complete their profiles."
                             }]
                         },
                         {
                             "title": "Profile Cards",
                             "contents": [{
-                                "text": "We modified the guest list of an event from a scrollable section of names and profile pictures, to featuring \"cards\" for each profile. These cards provide users with a fun way to showcase their customized profile settings even when in a list among other users. By expanding the effects of customization beyond a user's profile page, users are further incentivized to complete their profile."
+                                "text": "We modified the guest list of an event from a scrollable section of names and profile pictures to featuring \"cards\" for each profile. These cards give users a fun way to showcase their customized profile settings even when in a list among other users. By expanding the effects of customization beyond a user's profile page, users are further incentivized to complete their profile."
                             }]
                         }]
                     }
@@ -450,16 +495,20 @@
                 "inline_images": [],
                 "carousel": [
                     {
-                        "video": "../assets/partiful/carousel-media/RSVP_Socials.mp4"
+                        "video": "../assets/partiful/carousel-media/RSVP_Socials.mp4",
+                        "alt": "Video of a user adding their socials to view another profile's socials"
                     },
                     {
-                        "video": "../assets/partiful/carousel-media/fill_profile.mp4"
+                        "video": "../assets/partiful/carousel-media/fill_profile.mp4",
+                        "alt": "Video of a user customizing their profile background and special effects"
                     },
                     {
-                        "image": "../assets/partiful/carousel-media/hi-fi-1.png"
+                        "image": "../assets/partiful/carousel-media/hi-fi-1.png",
+                        "alt": "High fidelity mockup of popup prompting users to add socials"
                     },
                     {
-                        "image": "../assets/partiful/carousel-media/hi-fi-2.png"
+                        "image": "../assets/partiful/carousel-media/hi-fi-2.png",
+                        "alt": "High fidelity mockup of a completed profile"
                     }
                 ]
             },
@@ -467,7 +516,7 @@
                 "title": "Style Guide",
                 "contents": [
                     {
-                        "text": "In adding our new features, we developed a style guide to guide our high fidelity mockups. The fonts were explicitely given to us by Partiful; the other elements are modeled around the existing design and shaped to suit our additional features."
+                        "text": "In adding our new features, we developed a style guide for our high-fidelity mockups. The fonts were explicitly given to us by Partiful; the other elements are modeled around the existing design and shaped to suit our additional features."
                     }
                 ],
                 "full_images": [],
@@ -477,7 +526,17 @@
                 "title": "Startup Feedback",
                 "contents": [
                     {
-                        "text": "At our meeting with the founders, we were able to have a conversation about both the changes we made to the app and feedback about those changes. They praised certain elements of our design, most notably our flows that rewarded users for filling out their profile information with more customizable options. They also enjoyed our new feature that we titled \"party anthem\", which allows the users to put a song in their profile. However, they expressed that they would like the ability for the song to play continuously while the user was on the profile if that was possible. Interestingly enough, some of our concepts and designs were similar to features that the founders are working on or had considered before, including the idea of different tiers of mutuals (such as displaying the number of shared mutuals two users have). They were interested in the user research we conducted with our peers, and we discussed why users may be hesitant to fill out their profile information and Gen-Z disillusionment with emojis."
+                        "text": "At our meeting with the founders, we spoke about the changes we made to the app and received feedback about those changes. They praised certain elements of our design, most notably our flows rewarding users for filling out profile information with more customizable options. They also enjoyed the new feature that we titled \"Party Anthem\", which allows the users to put a song in their profile. However, they expressed that they would like the ability for the song to play continuously while the user was on the profile if that was possible. Interestingly enough, some of our concepts and designs were similar to features the Partiful team was working on or had considered before, including the idea of different tiers of mutuals (such as displaying the number of shared mutuals two users have). They were interested in the user research we conducted with our peers, and we discussed why users may be hesitant to fill out their profile information and Gen-Z disillusionment with emojis."
+                    }
+                ],
+                "full_images": [],
+                "inline_images": []
+            },
+            {
+                "title": "Takeaways",
+                "contents": [
+                    {
+                        "text": "While working on this project, I most enjoyed bouncing ideas off of my co-designers. Often, one person would start with one idea and inspire another until it grew into a full feature. This project allowed me to be creative and innovative while also working with contacts in a social media start-up."
                     }
                 ],
                 "full_images": [],
@@ -485,4 +544,5 @@
             }
         ]
     }
+
 ]
