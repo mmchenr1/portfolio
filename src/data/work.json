@@ -3,14 +3,157 @@
         "name": "Arduino Hero",
         "frameworks": ["Embedded C", "Python", "SAMD MCUs"],
         "timeline": "2.5 months",
-        "role": "Creator, Engineer, Embedded Software Engineer",
-        "description_short": "TODO",
-        "description_long": "TODO",
+        "role": "Creator, System Engineer, Embedded Software Engineer",
+        "description_short": "a homemade version of Guitar Hero built with three MCUs",
+        "description_long": "Arduino Hero is a homemade version of Guitar Hero, built using Arduino MCUs. It features a custom LED screen and LCD screen controlled by one Arduino MKR1000, a game controller with another MKR1000, and a music player enabled by an Arduino Uno with a music shield. To play Arduino Hero, strum the console bar while pressing the colored buttons on the controller in time with the music and the corresponding notes moving down the LED screen. Players can chose from a selection of songs and view their stats after gameplay ends.",
         "route": "/ArduinoHero",
-        "main_image": "../assets/placeholder.png",
+        "cover_image": "../assets/arduino-hero/arduino-cover.png",
+        "main_image": "../assets/arduino-hero/arduino-cover.png",
         "collaborators": "Serena Pulopot, Patrick Ortiz, Nick Bottone, & David Fryd",
         "sections": [
-            
+            {
+                "title": "Ideation",
+                "contents": [
+                    {
+                        "text": "To start this project, me and a group of friends had the idea to build a fun video game. The idea was to create an embedded system from scratch, using 3D printed materials, wiring, MCUs, and extraneous parts. To accomplish this, we began the development cycle of this embedded system with thorough planning, beginning with defining the system conceptually and then writing formal rule and requirements. As we worked, we created a manual outlining the system to faciliate collaborative development, traceability, system definition, and a smoother integration process."
+                    },
+                    {
+                        "text": "We defined the system to be a single-player game, where a player can select a song from the start menu, triggering a three second countdown. Following this countdown, the music starts and LED notes move down the gameboard in time with the song. A player tries to play the corresponding notes, indicated by color, on the guitar console while strumming the console bar. A player's score, combo, and maximum combo are recorded. Once the song ends, a game over screen is displayed along with scoring data. A player can then choose another song and repeat the cycle."
+                    },
+                    {
+                        "links": [
+                            {
+                                "name": "Arduino Hero Manual",
+                                "link": "../assets/arduino-hero/Arduino_Hero_Manua.pdf"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Requirements and Architecture",
+                "contents": [
+                    {
+                        "text": "After defining the system conceptually from a user's point of view, I created formal rules and requirements for the system. The full list can be found in the manual. I created these requirements with the intention of defining the full cycle of gameplay, accounting for edge cases such as software hangs and note scoring latency."
+                    }
+                ],
+                "full_images": [],
+                "inline_images": []
+            }, {
+                "title": "State Machine",
+                "contents": [
+                    {
+                        "text": "Next, I created a finite state machine for the Arduino MKR1000 attached to the LED matrix and LCD screen. This MCU controls the gamelogic and sends messages to the peripheral console and music player. I used the architecture diagram created by one of my co-developers to inform this process. Refer to the manual for descriptions of the transitions labelled in the diagram."
+                    },
+                    {
+                        "text": "I also created a traceability matrix that maps the rule and requirements to each of the guards and transitions in the state machine. This traceability matrix ensured that all of the system requirements were accounted for and also was a useful reference when writing test cases."
+                    }
+                ],
+                "full_images": [],
+                "inline_images": ["../assets/arduino-hero/state-machine.png"]
+            }, {
+                "title": "Guitar Console Assembly",
+                "contents": [
+                    {
+                        "text": "After wrapping our planning stage, we began to assemble the hardware. I collaborated with one of my co-developers to build the controller using a 3D printed body featuring buttons soldered to wires that run down the neck of the guitar, attaching to the MKR1000 located in the body. In total, there are seven buttons on the console. Five are in the bridge of the guitar, each corresponding to a color of note, and two in the body that are pressed by pushing the strum bar either up or down."
+                    },
+                    {
+                        "text": "I quickly began writing code to get user input, package it, and send it to the gameboard MCU to be processed in the game logic. First, I wrote a short program that triggers an interrupt when one of the buttons touching the strum bar is pressed. The ISR then polls all seven buttons and creates a byte, populating seven bits according to the buttons pressed. Each button corresponds to one of the bits in the byte and is set to '1' if the button is held down at the time that the interrupt was triggered."
+                    },
+                    {
+                        "text": "I quickly began writing code to get user input, package it, and send it to the gameboard MCU to be processed in the game logic."
+                    }
+                ],
+                "full_images": [],
+                "inline_images": ["../assets/arduino-hero/guitar-guts.png"]
+            },{
+                "title": "Guitar Controller Software",
+                "contents": [
+                    {
+                        "text": "First, I wrote a short program that triggers an interrupt when one of the buttons touching the strum bar is pressed. The ISR then polls all seven buttons and creates a byte, populating seven bits according to the buttons pressed. Each button corresponds to one of the bits in the byte and is set to '1' if the button is held down at the time that the interrupt was triggered."
+                    },
+                    {
+                        "text": "This byte is then passed to a subroutine which manually sending it via UART. We chose to multiplex two pins on the gameboard MKR1000 for UART communication with the controller because we were worried about latency issues in communication between the music player and gameboard arduino, so we reserved the RX and TX pins to run hardware UART communication between those MCUs."
+                    }
+                ],
+                "full_images": ["../assets/arduino-hero/uart-bus.png"],
+                "inline_images": []
+            }, 
+             {
+                "title": "Integration",
+                "contents": [
+                    {
+                        "text": "I worked on the integration of both peripherals to the gameboard MCU, working independently on the controller-gameboard integration and with a co-developer on the music player-gameboard integration."
+                    },
+                    {
+                        "subsections": [
+                            {
+                                "title": "Controller-Gameboard Integration",
+                                "contents": [
+                                    {
+                                        "text": "To integrate the manual UART protocol I created, I wrote software for the gameboard to receive the UART bus sent from the controller. This functionality is in an ISR that is triggered when the receiving pin drop to a low signal, since I used a idle-high framework. This ISR then receives the byte, checks it for corruption via parity, and uses it in the game logic if uncorrupted."
+                                    },
+                                    {
+                                        "text": "This integration process was very smooth, which I attribute to the planning done before we touched hardware or software."
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "Music Player-Gameboard Integration",
+                                "contents": [
+                                    {
+                                        "text": "Integrating the Arduino Uno with the music shield to the gameboard was a more difficult task. We used the RX and TX pins on both MCUs to facilitate hardware UART comminication, where the gameboard MCU sends signals to start one of the tracks or to stop the music."
+                                    },
+                                    {
+                                        "text": "We debugged this process by creating testing pathways in the sending and receiving code to only run the core functionality to the communication protocol and using the serial monitor to view the bits being received/sent on both ends. Eventually, through manual testing we found the bug and succesfully integrated these components."
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "full_images": [],
+                "inline_images": []
+            }, {
+                "title": "State Machine Code",
+                "contents": [
+                    {
+                        "text": "I also created the state machine code that ultimately runs the gameboard MCU based on the diagram I created during the planning stage. This process involved me leading my co-developers in fitting the pieces of code we had developed together and testing the system to ensure that it meets all the rules and requirements. I really enjoyed collaborating with my team on this process and seeing the system come together."
+                    }
+                ],
+                "full_images": [],
+                "inline_images": [],
+                "inline_video": "../assets/arduino-hero/arduino_hero_demo.mp4"
+            }, {
+                "title": "Testing",
+                "contents": [
+                    {
+                        "text": "Throughout the software development process, we performed many manual tests on our components. I created testing pathways in the guitar controller code, state machine code, and integration modules while developing to facilitate manual testing iterations."
+                    },
+                    {
+                        "text": "To wrap up our development, we wrote white box tests for each of the transitions/guards in the finite state machine and also black box testing on the rules and requirements of the system. The white box tests relied on mocked out functions of LCD output to compare to expected system behavior. We recorded all of the tests in a spreadsheet that maps test cases, requirements, variables, and the status of the test."
+                    }
+                ],
+                "full_images": [],
+                "inline_images": []
+            }, {
+                "title": "Takeaways",
+                "contents": [
+                    {
+                        "text": "Throughout the process of building Arduino Hero, I learned many lessons. From all of the experience and skills that I built, my most important takeaways are:"
+                    },
+                    {
+                        "list": [
+                            "The planning stage is the most important of a project.",
+                            "I enjoy coordinating integration amongst my co-developers and working to fit all the pieces of a project together.",
+                            "Writing extra frameworks for manual testing is extremely valuable for running manual tests.",
+                           " Traceability is very helpful, especially in the testing stage."
+                        ]
+                    }
+                ],
+                "full_images": [],
+                "inline_images": []
+            }
         ]
     },
     {
@@ -21,6 +164,7 @@
         "description_short": "song aggregator with filtering and sorting",
         "description_long": "I designed an interface that allows users to filter, sort, and favorite songs and then view their favorited songs in an aggregator. In designing the interface, I first analyzed and compared three desktop music platforms with these features: Spotify, Deezer, and Youtube Music. I then took my findings and created my interface using React.js.",
         "route": "/MusicAggregator",
+        "cover_image": "../assets/music-aggregator/music-aggregator-cover.png",
         "main_image": "../assets/music-aggregator/my-design.png",
         "collaborators": "",
         "image_link": "https://uiux-development.vercel.app/",
@@ -107,7 +251,8 @@
         "description_short": "feature design for Partiful mobile app profile pages",
         "description_long": "I worked with Partiful, a startup party planning app, and a team of developers to design new features aimed at boosting user engagement with profiles.",
         "route": "/PartifulProfileDesign",
-        "main_image": "../assets/placeholder.png",
+        "cover_image": "../assets/partiful/partiful-cover.png",
+        "main_image":  "../assets/partiful/partiful-cover.png",
         "collaborators": "Sita Pawar, Andy Burris, & Grace Miller",
         "sections": [
             {
@@ -308,7 +453,7 @@
                         "video": "../assets/partiful/carousel-media/RSVP_Socials.mp4"
                     },
                     {
-                        "video": "../assets/partiful/carousel-media/fill-profile.mp4"
+                        "video": "../assets/partiful/carousel-media/fill_profile.mp4"
                     },
                     {
                         "image": "../assets/partiful/carousel-media/hi-fi-1.png"

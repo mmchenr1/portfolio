@@ -35,10 +35,12 @@ const scrollToSection = (id) => {
     element.scrollIntoView({ behavior: 'smooth' });
   }
 };
-  console.log("HERE")
-  console.log(project.image_link)
+console.log("hereeee");
+
+const id_tag = project.name.replace(/\s+/g, '-');;
+console.log(id_tag);
   return (
-    <div id={project} className="project-page">
+    <div id={id_tag} className="project-page">
       <div id="progress-bar-container">
       <div id="progress-bar" style={{ width: `${scrollProgress}%` }}></div>
       </div>
@@ -100,17 +102,6 @@ const scrollToSection = (id) => {
   );
 };
 
-
-function Tag(props) {
-  return(
-      <div className="framework-tag">
-          <p className="tag-text">
-              {props.tag}
-          </p>
-      </div>
-  )
-};
-
 function Section(props) {
   const formattedIndex = String(props.i).padStart(2, '0');
   const sectionClass = props.i % 2 === 0 ? "project-section alt-proj-section-background": "project-section"; // Conditionally apply class
@@ -127,6 +118,12 @@ function Section(props) {
 
           {props.carousel && (
             <Carousel items={[...props.carousel]} />
+          )}
+
+          {props.inline_video && (
+            <video controls autoPlay muted>
+              <source src={props.inline_video} type="video/mp4" />
+            </video>
           )}
 
 

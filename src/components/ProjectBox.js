@@ -9,6 +9,7 @@ export default function ProjectBox(props) {
             id={name}
             onClick={() => navigate(`${props.route}`)}
         >
+            <img src={props.cover_image} className="work-square-image"/>
             <div className="work-square-overlay">
                 <div className="overlay-contents">
                     <p className="work-name">

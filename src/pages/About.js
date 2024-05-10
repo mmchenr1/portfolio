@@ -6,7 +6,7 @@ export default function About() {
                 <img id="about-img" src="../assets/personal-pic.jpg"></img>
                 <div id="about-text-blurb">
                     <p>
-                        I'm Molly McHenry, an embedded software engineer and pilot passionate about developing  electronic aviation technology, centering on safety and intuitive design.
+                        I'm Molly McHenry, an embedded software engineer and pilot passionate about developing electronic aviation technology, centering on safety and intuitive design.
                     </p>
 
                     <p>
