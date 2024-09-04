@@ -6,7 +6,7 @@ export default function Navbar() {
                 <a className="navbar-link clickable" href="/" id="work-link">Work</a>
                 <a className="navbar-link clickable" href="/About" id="about-link">About</a>
                 <a className="navbar-link clickable" id="resume-link" 
-                    href='/assets/Molly_McHenry_Resume.pdf' target="_blank">
+                    href='/assets/Resume_Embedded_Systems_Molly_McHenry.pdf' target="_blank">
                     Resume</a>
                 
             </div>
