@@ -135,6 +135,7 @@ img,video,.open-in-new-window-overlay{
   border-bottom-right-radius: 75%;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+  transform: 10px;
 }
 
 /* #navbar{
