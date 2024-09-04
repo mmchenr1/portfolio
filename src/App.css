@@ -334,7 +334,7 @@ h3{
     border-bottom: solid var(--purple-color) 6px;
     font-weight: unset;
     margin-block-start: unset;
-    font-size: var(--med-font-size);
+    font-size: var(--med-font-size); 
   }
 
   #project-contents h3{
