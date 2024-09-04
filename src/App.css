@@ -467,10 +467,19 @@ h3{
     justify-content: center;
   }
 
-  /* .inline-contents > * {
-    min-width: 70px;
-    margin: 0 auto;
-  } */
+  .inline-images{
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+    height: 50%;;
+    max-width: 40%;
+  }
+  
+  .inline-images img{
+    padding: 10px;
+    width: 100%;
+  }
 
   .links-container {
     display: flex;
@@ -515,11 +524,6 @@ h3{
 
   .link:hover{
     opacity: 0.85;
-  }
-
-  .inline-contents img{
-    max-width: 40%;
-    min-width: 170px;
   }
 
   .full-img{
@@ -913,5 +917,10 @@ figcaption{
 
   .icon-item img, .slideImg{
     min-width: unset !important;
+  }
+
+  .inline-images{
+    flex-direction: row !important;
+    flex-wrap: wrap;
   }
 }

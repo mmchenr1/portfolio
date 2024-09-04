@@ -1,5 +1,94 @@
 [
     {
+        "name": "Skyryse Internship",
+        "frameworks": ["C", "Python", "Simulink", "Matlab", "dSPACE"],
+        "timeline": "June-August 2024",
+        "role": "Systems Test Engineer Intern with Embedded Software cross-functionality",
+        "description_short": "summer internship working with systems test, embedded software, and devops teams",
+        "description_long": "During the summer of 2024, I completed a 12-week internship as a System Test Intern in the Skyryse Systems Integration Lab (SIL). During my internship, I worked with the Systems Test, Embedded Software, and DevOps teams to advance the SIL's testing capabilities, primarily with telemetry data. I was also selected as one of two interns to travel with Skyryse executives and a small team to launch the Skyryse One at EAA Airventure in Oshkosh, WI. Much of what I worked on is proprietary to Skyryse and protected under an NDA, so I can't share too many technical details about my work.",
+        "route": "/skyryse-internship",
+        "cover_image": {
+            "path": "../assets/skyryse-iternship/skyryse-one.jpg",
+            "alt": "The Skyryse One Helicopter"
+        },
+        "main_image": {
+            "path": "../assets/skyryse-iternship/skyryse-intern-class.jpg",
+            "alt": "Skyryse summer intern class of 2024 group photo"
+        },
+        "image_link": "https://www.linkedin.com/posts/molly-mchenry-35a56b235_last-week-i-wrapped-up-my-summer-internship-ugcPost-7235017496443916289-rCan?utm_source=share&utm_medium=member_desktop",
+        "sections": [
+            {
+                "title": "Telemetry",
+                "contents": [
+                    {
+                        "text": "When I started at Skyryse, there were no capabilities for reading live telemetry during systems tests, despite the value that this data lends to understanding the inner workings of the system. My task was simply defined as, \"find a way to read live telemetry data on the SIL.\" While daunting, I was excited to dive into the nitty-gritty technicalities of achieving a Simulink-compatible low-latency UDP parser. The process entailed much ideation of how to build a parser that has low enough latency to handle more than 2000 telemetry data points per 0.025 seconds!"
+                    },
+                    {
+                        "text": "The first major decision I made was to use C for the telemetry parser for two main reasons:"
+                    },
+                    {                        
+                        "list": [
+                            "C is a Simulink-compatible language, even if challenging to integrate",
+                            "I love programming in C!"
+                        ]
+                    },
+                    {
+                        "text": "This choice brought me to another major challenge, however. Skyryse is a startup and development moves quickly, meaning that the telemetry specifications and documentation changes frequently. Although C is a statically typed language, I needed a way to make the parser dynamic to telemetry specification documents after compile time."
+
+                    },
+                    {
+                        "text": "Solving this problem was a bit of a headache and involved a lot of time bouncing ideas back and forth with my intern mentor. Eventually, it hit me: why not make a Python preprocessor that is capable of reading the necessary documents and updating the C files accordingly? Once I got this idea, I ran with it and began to code a parser that involved a lot of bit logic to read through telemetry UDP packets and also involved significant portions of dynamically allocated memory."
+                    },
+                    {
+                        "text": "I wrapped up the telemetry parser by automating updates to the Simulink model and routing the telemetry data to the necessary hardware. By the end of the summer, we were reading telemetry data live!"
+                    },
+                    {
+                        "hi": ""
+                    }
+                ],
+                "inline_images": [
+                    {
+                        "path": "../assets/skyryse-iternship/skyryse-one.jpg",
+                        "alt": "The Skyryse One, which I was pulling telemetry from"
+                    },
+                    {
+                        "path": "../assets/skyryse-iternship/skyryse-one-cockpit.jpg",
+                        "alt": "The Skyryse One's redesigned cockpit"
+
+                    }
+                ]
+            },
+            {
+                "title": "NVM Fault Logger Utility",
+                "contents": [
+                    {
+                        "text": "I also worked with the embedded software team to create a utility to read and display fault data stored in NVM on the flight computers in the aircraft. This tool was developed in Python and run on the RTD. I enjoyed challenging myself to abstract the parsing format and outfile specifications of the NVM data so that this tool can continue to be advanced."
+                    },
+                    {
+                        "text": "Working on this utility and developing telemetry capabilities, I discovered my passion for data and backend infrastructure development."
+                    }
+                ]
+            },
+            {
+                "title": "EAA Airventure Oshkosh",
+                "contents": [
+                    {
+                        "text": "A highlight of my internship was attending EAA Airventure Oshkosh with an amazing team of Skyrysers to debut SkyOS and the Skyryse One."
+                    },
+                    {
+                        "text": "While in Oshkosh, I had the unique opportunity to engage with the public, sharing Skyryse's vision, the capabilities of the Skyryse One, and the need for fly-by-wire technology in general aviation. Witnessing the aviation community's enthusiastic welcome of SkyOS and our mission to eliminate general aviation fatalities was truly inspiring."
+                    },
+                    {
+                        "text": "Working alongside the CEO, VP of Sales, and the team, I learned to communicate technical information in an easily digestible way. As a software engineer, my extroversion and communication are among my most valuable skills, and I am extremely grateful for this opportunity to continue to advance these strengths."
+                    }
+                ],
+                "full_images": [
+                    {"path": "../assets/skyryse-iternship/oshkosh-group.jpg", "alt": "Team Skyryse at our EAA Airventure booth"}
+                ]
+            }
+        ]
+    },
+    {
         "name": "Arduino Hero",
         "frameworks": ["Embedded C", "Python", "SAMD MCUs"],
         "timeline": "2.5 months",
@@ -273,276 +362,5 @@
                 "inline_images": []
             }
         ]
-    },
-    {
-        "name": "Partiful Profile Design",
-        "frameworks": ["Figma"],
-        "timeline": "3 weeks",
-        "role": "Designer",
-        "description_short": "feature design for Partiful mobile app profile pages",
-        "description_long": "I worked with Partiful, a startup party planning app, and a team of developers to design new features aimed at boosting user engagement with profiles.",
-        "route": "/PartifulProfileDesign",
-        "cover_image":  {
-            "path":"../assets/partiful/partiful-cover.png",
-            "alt": "Phone screen with completed Partiful profile"
-        },
-        "main_image": {
-            "path": "../assets/partiful/partiful-cover.png",
-            "alt": "Phone screen with completed Partiful profile"
-        },
-        "collaborators": "Sita Pawar, Andy Burris, & Grace Miller",
-        "sections": [
-            {
-                "title": "The Task",
-                "contents": [
-                    {
-                        "text": "We teamed up with Partiful, an event invitation platform, to design features that encourage users to fill out their profiles. Over the timeline of this project, we conferenced with Partiful team members and iteratively designed as we received feedback."
-                    },
-                    {
-                        "text":  "For more information about Partiful and the specifics of our work, check out the links below."
-                    },
-                    {
-                        "links": [
-                            {
-                                "name": "Project Brief",
-                                "link": "https://docs.google.com/document/d/19Au37Jwm3JA1r486SNlFD61qZsglyCzhCWDwMwx98HY/edit?usp=sharing"
-                            },
-                            {
-                                "name": "Partiful",
-                                "link": "https://partiful.com/"
-                            }
-                        ]
-                    }
-                ],
-                "full_images": [],
-                "inline_images": []
-            },
-            {
-                "title": "Sketching",
-                "contents": [
-                    {
-                        "text": "We started our design process by sketching ideas for different flows. Each developer chose two flows to sketch, adding new features. The first flow I sketched was how users can view people's profiles from the RSVP list for an event. I also sketched a flow for how users can view and interact with a list of mutuals on other's profiles."
-                    },
-                    {
-                        "text":  "In these sketches, I had a few initial ideas to incentivize users to fill out profile information:"
-                    },
-                    {
-                        "list": [
-                            "Including a \"Party Anthem\" as a fun field to include in a profile. This fills up space and is a fun, personal way to show personality.",
-                            "\"Bestie Alerts\" to encourage users to view another profile. This feature demonstrates a fun effect and background on the profile, which users may want to unlock themselves by completing their profile.",
-                            "I explored friending but had many concerns about what this feature means for users since Partiful doesn't support messaging or exploring profiles."
-                        ]
-                    },
-                    {
-                        "text":  "The other designers also made sketches with ideas for verified badges on fully completed profiles, horoscope birthdays, and popups to prompt users to add information to their profiles."
-                    }
-                ],
-                "full_images": [],
-                "inline_images": [{
-                    "path": "../assets/partiful/sketch.png",
-                    "alt": "handrawn sketches for flows of viewing profiles from event RSVP list"
-                }]
-            },
-            {
-                "title": "Wireframes",
-                "contents": [
-                    {
-                        "text": "From here, we compiled the sketches into some initial wireframes. We drew inspiration from our sketches, pulling from the verified sign-on profiles, more customization options, and different ways to build out the mutual features. Our primary objective was incentivizing users to complete their profile with a photo and more information. We focused on two avenues to achieve this:"
-                    },
-                    {
-                        "list": [
-                            "Adding more calls to action and paths to direct users towards editing their profile",
-                            "Emphasizing the social connectivity of the platform with the assumption that if you feel like people are looking at your profile, you are more likely to care about how it looks."
-                        ]
-                    },
-                    {
-                        "text": "For our first objective, we added more customizable features since we believe that if people want to edit or fill out one feature on their profile, they are more likely to fill out more things since they are already on their profile. Some new features we designed to achieve this included:"
-                    },
-                    {
-                        "list": [
-                            "\"Party anthem\" module on the profile page. A fun feature that can help bring people to the edit profile page",
-                            "Rebranding birthday month as horoscope on profile page. This modification from displaying birth months feels less revealing of personal info and is more interesting to know",
-                            "Adding complete check mark on the profile that can unlock new customization features",
-                            "Including buttons prompting the user to add socials by default when viewing the user's profile",
-                            "Add new customization options for profile background (similar to the event page)"
-                        ]
-                    }
-                ],
-                "full_images": [{
-                    "path": "../assets/partiful/initial_wireframe.png",
-                    "alt": "Low fidelity wireframes of guest list, mutual, and profile card screens"
-                }],
-                "inline_images": []
-            },
-            {
-                "title": "User Interviews",
-                "contents": [
-                    {
-                        "text": "Since our demographic is the target audience for Partiful, we decided to ask some of our peers about their experiences with the platform and what might incentivize them to fill out more information."
-                    },
-                    {
-                        "text": "From a group interview as well as some informal one-on-one interviews, our main takeaways were:"
-                    },
-                    {
-                        "list": [
-                            "No one we talked to had filled out their profile.", 
-                            "Many people didn't even realize they had a profile or didn't remember ever being prompted to add a photo.",
-                            "They didn't understand why adding more information is necessary."
-                        ]
-                    },
-                    {
-                        "text": "When we asked about reasons people could be more compelled to include more information, prominent responses included:"
-                    },
-                    {
-                        "list": [
-                            "If photos were required to see the guest list/reply, or if other important features were blocked - however \"this would be super annoying\".",
-                            "If they had a good reason. We discussed framing socials as a way to connect with people after a party and emphasizing the importance of photos for identifying people who are coming",
-                            "If everyone else had a photo/filled out profile"
-                        ]
-                    }
-                ]
-            },
-            {
-                "title": "Wireframe Revision",
-                "contents": [
-                    {
-                        "text": "After creating our initial wireframes, we collected feedback from user interviews, peers, and our contacts at Partiful. We then incorporated this feedback to improve our wireframes. Most of the changes centered around sizing—we removed elements with too small touch targets and column layouts that wouldn't work with smaller screen sizes. We also reprioritized the most important information to show in each view and removed overwhelming info."
-                    }
-                ],
-                "full_images": [{
-                    "path": "../assets/partiful/revised_wireframe.png",
-                    "alt": "Revised low fidelity wireframes of viewing own profile and profile card from and event guest list"
-                }]
-            },
-            {
-                "title": "High Fidelity Wireframes",
-                "contents": [
-                    {
-                        "text": "After revisions, we created our final hi-fi wireframes in Figma."
-                    },
-                    {
-                        "links": [
-                            {
-                                "name": "Figma Flow 1: RSVP and Add Social",
-                                "link": "https://www.figma.com/proto/NrxtRs7GuhJVrY6WAFXMMf/Partiful-Profles?page-id=68%3A2197&type=design&node-id=334-16273&viewport=960%2C70%2C0.15&t=5YuKiCAdFb9bh05W-1&scaling=scale-down&starting-point-node-id=334%3A16273&show-proto-sidebar=1&mode=design"
-                            },
-                            {
-                                "name": "Figma Flow 2: Customize Profile",
-                                "link": "https://www.figma.com/proto/NrxtRs7GuhJVrY6WAFXMMf/Partiful-Profles?page-id=68%3A2197&type=design&node-id=288-2162&viewport=960%2C70%2C0.15&t=5YuKiCAdFb9bh05W-1&scaling=scale-down&starting-point-node-id=288%3A2162&show-proto-sidebar=1&mode=design"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "The final design choices that made it into our hi-fi mockups are as follows:"
-                    },
-                    { 
-                        "subsections": [
-                            {
-                            "title": "Complete check marks",
-                            "contents": [
-                                {
-                                    "text": "Everyone wants the verified blue checkmark on social media platforms like Instagram or Twitter, so we decided to leverage this motivation to incentivize users to complete their profiles. Once a profile is completed, users get a yellow checkmark icon next to their name."
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Gatekeeping socials",
-                            "contents": [
-                                {
-                                    "text": "Users can't see other user's linked socials unless they have added socials themselves. \"Gatekeeping\" this social media feature incentivizes users to avoid missed connections from parties by adding socials so partiers can get in touch."
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Updated edit profile flow",
-                            "contents": [
-                                {
-                                    "text": "We added a progress bar to show how complete a user's profile is. This can help inform the user that there are still things to complete and incentivize them to fill up the bar.."
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Party Anthems",
-                            "contents": [
-                                {
-                                    "text": "We added the option to link a song from Spotify or Apple Music to a profile so that users can share more of their personality! This is a field that we think users will want to complete, which adds more information to their profile page."
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Pop-ups",
-                            "contents": [
-                                {
-                                    "text": "We believe that adding more prompts with compelling reasons for users to add information will increase the completion of profiles. Adding fun pop-ups can remind the user that they haven't completed their profile while still allowing for easy dismissal. Our pop-ups also provide a reason for why Partiful is asking for this information."
-                                }
-                            ]
-                        },
-                        {
-                            "title": "Customizable background",
-                            "contents": [{
-                                "text": "Once a user completes all the information from their profile, they unlock customizable backgrounds and particle effects, similar to the events page. The idea is that users will enjoy the fun customization and therefore be incentivized to complete their profiles."
-                            }]
-                        },
-                        {
-                            "title": "Profile Cards",
-                            "contents": [{
-                                "text": "We modified the guest list of an event from a scrollable section of names and profile pictures to featuring \"cards\" for each profile. These cards give users a fun way to showcase their customized profile settings even when in a list among other users. By expanding the effects of customization beyond a user's profile page, users are further incentivized to complete their profile."
-                            }]
-                        }]
-                    }
-                ],
-                "full_images": [],
-                "inline_images": [],
-                "carousel": [
-                    {
-                        "video": "../assets/partiful/carousel-media/RSVP_Socials.mp4",
-                        "alt": "Video of a user adding their socials to view another profile's socials"
-                    },
-                    {
-                        "video": "../assets/partiful/carousel-media/fill_profile.mp4",
-                        "alt": "Video of a user customizing their profile background and special effects"
-                    },
-                    {
-                        "image": "../assets/partiful/carousel-media/hi-fi-1.png",
-                        "alt": "High fidelity mockup of popup prompting users to add socials"
-                    },
-                    {
-                        "image": "../assets/partiful/carousel-media/hi-fi-2.png",
-                        "alt": "High fidelity mockup of a completed profile"
-                    }
-                ]
-            },
-            {
-                "title": "Style Guide",
-                "contents": [
-                    {
-                        "text": "In adding our new features, we developed a style guide for our high-fidelity mockups. The fonts were explicitly given to us by Partiful; the other elements are modeled around the existing design and shaped to suit our additional features."
-                    }
-                ],
-                "full_images": [],
-                "inline_images": []    
-            },
-            {
-                "title": "Startup Feedback",
-                "contents": [
-                    {
-                        "text": "At our meeting with the founders, we spoke about the changes we made to the app and received feedback about those changes. They praised certain elements of our design, most notably our flows rewarding users for filling out profile information with more customizable options. They also enjoyed the new feature that we titled \"Party Anthem\", which allows the users to put a song in their profile. However, they expressed that they would like the ability for the song to play continuously while the user was on the profile if that was possible. Interestingly enough, some of our concepts and designs were similar to features the Partiful team was working on or had considered before, including the idea of different tiers of mutuals (such as displaying the number of shared mutuals two users have). They were interested in the user research we conducted with our peers, and we discussed why users may be hesitant to fill out their profile information and Gen-Z disillusionment with emojis."
-                    }
-                ],
-                "full_images": [],
-                "inline_images": []
-            },
-            {
-                "title": "Takeaways",
-                "contents": [
-                    {
-                        "text": "While working on this project, I most enjoyed bouncing ideas off of my co-designers. Often, one person would start with one idea and inspire another until it grew into a full feature. This project allowed me to be creative and innovative while also working with contacts in a social media start-up."
-                    }
-                ],
-                "full_images": [],
-                "inline_images": []
-            }
-        ]
     }
-
 ]
