@@ -1,0 +1,40 @@
+{
+    "name": "",
+    "frameworks": [],
+    "timeline": "",
+    "role": "",
+    "description_short": "",
+    "description_long": "",
+    "route": "/",
+    "cover_image": {
+        "path": "../assets/",
+        "alt": ""
+    },
+    "main_image": {
+        "path": "../assets/",
+        "alt": ""
+    },
+    "image_link": "",
+    "collaborators": "",
+    "sections": [
+        {
+            "title": "add as many sections as needed",
+            "contents": [
+                {
+                    "text": "add as many text/link/image portions of sections as you want!"
+                },
+                {
+                    "text": ""
+                },
+                {
+                    "links": [
+                        {
+                            "name": "",
+                            "link": "../assets/"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

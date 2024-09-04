@@ -543,6 +543,94 @@
                 "inline_images": []
             }
         ]
-    }
+    },
+    {
+        "name": "Skyryse Internship",
+        "frameworks": ["C", "Python", "Simulink", "Matlab", "dSPACE"],
+        "timeline": "June-August 2024",
+        "role": "Systems Test Engineer Intern with Embedded Software cross-functionality",
+        "description_short": "summer internship working with systems test, embedded software, and devops teams",
+        "description_long": "During the summer of 2024, I completed a 12-week internship as a System Test Intern in the Skyryse Systems Integration Lab (SIL). During my internship, I worked with the Systems Test, Embedded Software, and DevOps teams to advance the SIL's testing capabilities, primarily with telemetry data. I was also selected as one of two interns to travel with Skyryse executives and a small team to launch the Skyryse One at EAA Airventure in Oshkosh, WI. Much of what I worked on is proprietary to Skyryse and protected under an NDA, so I can't share too many technical details about my work.",
+        "route": "/skyryse-internship",
+        "cover_image": {
+            "path": "../assets/skyryse-iternship/skyryse-one.jpg",
+            "alt": "The Skyryse One Helicopter"
+        },
+        "main_image": {
+            "path": "../assets/skyryse-iternship/skyryse-intern-class.jpg",
+            "alt": "Skyryse summer intern class of 2024 group photo"
+        },
+        "image_link": "https://www.linkedin.com/posts/molly-mchenry-35a56b235_last-week-i-wrapped-up-my-summer-internship-ugcPost-7235017496443916289-rCan?utm_source=share&utm_medium=member_desktop",
+        "sections": [
+            {
+                "title": "Telemetry",
+                "contents": [
+                    {
+                        "text": "When I started at Skyryse, there were no capabilities for reading live telemetry during systems tests, despite the value that this data lends to understanding the inner workings of the system. My task was simply defined as, \"find a way to read live telemetry data on the SIL.\" While daunting, I was excited to dive into the nitty-gritty technicalities of achieving a Simulink-compatible low-latency UDP parser. The process entailed much ideation of how to build a parser that has low enough latency to handle more than 2000 telemetry data points per 0.025 seconds!"
+                    },
+                    {
+                        "text": "The first major decision I made was to use C for the telemetry parser for two main reasons:"
+                    },
+                    {                        
+                        "list": [
+                            "C is a Simulink-compatible language, even if challenging to integrate",
+                            "I love programming in C!"
+                        ]
+                    },
+                    {
+                        "text": "This choice brought me to another major challenge, however. Skyryse is a startup and development moves quickly, meaning that the telemetry specifications and documentation changes frequently. Although C is a statically typed language, I needed a way to make the parser dynamic to telemetry specification documents after compile time."
 
+                    },
+                    {
+                        "text": "Solving this problem was a bit of a headache and involved a lot of time bouncing ideas back and forth with my intern mentor. Eventually, it hit me: why not make a Python preprocessor that is capable of reading the necessary documents and updating the C files accordingly? Once I got this idea, I ran with it and began to code a parser that involved a lot of bit logic to read through telemetry UDP packets and also involved significant portions of dynamically allocated memory."
+                    },
+                    {
+                        "text": "I wrapped up the telemetry parser by automating updates to the Simulink model and routing the telemetry data to the necessary hardware. By the end of the summer, we were reading telemetry data live!"
+                    },
+                    {
+                        "hi": ""
+                    }
+                ],
+                "inline_images": [
+                    {
+                        "path": "../assets/skyryse-iternship/skyryse-one.jpg",
+                        "alt": "The Skyryse One, which I was pulling telemetry from"
+                    },
+                    {
+                        "path": "../assets/skyryse-iternship/skyryse-one-cockpit.jpg",
+                        "alt": "The Skyryse One's redesigned cockpit"
+
+                    }
+                ]
+            },
+            {
+                "title": "NVM Fault Logger Utility",
+                "contents": [
+                    {
+                        "text": "I also worked with the embedded software team to create a utility to read and display fault data stored in NVM on the flight computers in the aircraft. This tool was developed in Python and run on the RTD. I enjoyed challenging myself to abstract the parsing format and outfile specifications of the NVM data so that this tool can continue to be advanced."
+                    },
+                    {
+                        "text": "Working on this utility and developing telemetry capabilities, I discovered my passion for data and backend infrastructure development."
+                    }
+                ]
+            },
+            {
+                "title": "EAA Airventure Oshkosh",
+                "contents": [
+                    {
+                        "text": "A highlight of my internship was attending EAA Airventure Oshkosh with an amazing team of Skyrysers to debut SkyOS and the Skyryse One."
+                    },
+                    {
+                        "text": "While in Oshkosh, I had the unique opportunity to engage with the public, sharing Skyryse's vision, the capabilities of the Skyryse One, and the need for fly-by-wire technology in general aviation. Witnessing the aviation community's enthusiastic welcome of SkyOS and our mission to eliminate general aviation fatalities was truly inspiring."
+                    },
+                    {
+                        "text": "Working alongside the CEO, VP of Sales, and the team, I learned to communicate technical information in an easily digestible way. As a software engineer, my extroversion and communication are among my most valuable skills, and I am extremely grateful for this opportunity to continue to advance these strengths."
+                    }
+                ],
+                "full_images": [
+                    {"path": "../assets/skyryse-iternship/oshkosh-group.jpg", "alt": "Team Skyryse at our EAA Airventure booth"}
+                ]
+            }
+        ]
+    }
 ]

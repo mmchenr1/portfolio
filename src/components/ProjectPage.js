@@ -116,13 +116,15 @@ function Section(props) {
       <div className="section-contents">
 
           <div className='inline-contents'>
-            {props.inline_images && props.inline_images.map((image, index) => {
-              const projectName = image.path.split('/')[2]; // extract the project name
-              const imgName = image.path.split('/')[3].split('.')[0]; // extract the image name
-              return (
-                <img key={index} src={image.path} className={`${projectName}-${imgName}`} alt={image.alt} />
-              );
-            })}
+            <div className='inline-images'>
+              {props.inline_images && props.inline_images.map((image, index) => {
+                const projectName = image.path.split('/')[2]; // extract the project name
+                const imgName = image.path.split('/')[3].split('.')[0]; // extract the image name
+                return (
+                  <img key={index} src={image.path} className={`${projectName}-${imgName}`} alt={image.alt} />
+                );
+              })}
+            </div>
 
           {props.carousel && (
             <Carousel items={[...props.carousel]} />
