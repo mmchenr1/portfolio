@@ -1,0 +1,41 @@
+{
+    "name": "Search Engine",
+    "frameworks": ["Python"],
+    "timeline": "2 weeks",
+    "role": "Software Engineer",
+    "description_short": "",
+    "description_long": "",
+    "route": "/SearchEngine",
+    "cover_image":  {
+        "path":"../assets/search-engine/",
+        "alt": ""
+    },
+    "main_image": {
+        "path": "../assets/search-engine/",
+        "alt": ""
+    },
+    "collaborators": "N/A",
+    "sections": [
+        {
+            "title": "",
+            "contents": [
+                {
+                    "text": ""
+                },
+                {
+                    "text":  ""
+                },
+                {
+                    "links": [
+                        {
+                            "name": "",
+                            "link": ""
+                        }
+                    ]
+                }
+            ],
+            "full_images": [],
+            "inline_images": []
+        }
+    ]
+}
