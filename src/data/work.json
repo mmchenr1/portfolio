@@ -4,8 +4,8 @@
         "frameworks": ["C", "Python", "Simulink", "Matlab", "dSPACE"],
         "timeline": "June-August 2024",
         "role": "Systems Test Engineer Intern with Embedded Software cross-functionality",
-        "description_short": "summer internship working with systems test, embedded software, and devops teams",
-        "description_long": "During the summer of 2024, I completed a 12-week internship as a System Test Intern in the Skyryse Systems Integration Lab (SIL). During my internship, I worked with the Systems Test, Embedded Software, and DevOps teams to advance the SIL's testing capabilities, primarily with telemetry data. I was also selected as one of two interns to travel with Skyryse executives and a small team to launch the Skyryse One at EAA Airventure in Oshkosh, WI. Much of what I worked on is proprietary to Skyryse and protected under an NDA, so I can't share too many technical details about my work.",
+        "description_short": "summer internship working with systems test, software, and devops teams",
+        "description_long": "During the summer of 2024, I completed a 12-week internship as a System Test Intern in the Skyryse Systems Integration Lab (SIL). During my internship, I worked with the Systems Test, Software, and DevOps teams to advance the SIL's testing capabilities, primarily with telemetry data. I was also selected as one of two interns to travel with Skyryse executives and a small team to launch the Skyryse One at EAA Airventure in Oshkosh, WI. Much of what I worked on is proprietary to Skyryse and protected under an NDA, so I can't share too many technical details about my work.",
         "route": "/skyryse-internship",
         "cover_image": {
             "path": "../assets/skyryse-iternship/skyryse-one.jpg",
@@ -62,7 +62,7 @@
                 "title": "NVM Fault Logger Utility",
                 "contents": [
                     {
-                        "text": "I also worked with the embedded software team to create a utility to read and display fault data stored in NVM on the flight computers in the aircraft. This tool was developed in Python and run on the RTD. I enjoyed challenging myself to abstract the parsing format and outfile specifications of the NVM data so that this tool can continue to be advanced."
+                        "text": "I also worked with the software team to create a utility to read and display fault data stored in NVM on the flight computers in the aircraft. This tool was developed in Python and run on the RTD. I enjoyed challenging myself to abstract the parsing format and outfile specifications of the NVM data so that this tool can continue to be advanced."
                     },
                     {
                         "text": "Working on this utility and developing telemetry capabilities, I discovered my passion for data and backend infrastructure development."

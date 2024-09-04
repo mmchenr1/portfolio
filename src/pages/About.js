@@ -8,15 +8,15 @@ export default function About() {
                 </div>
                 <div id="about-text-blurb">
                     <p>
-                        I'm Molly McHenry, an embedded software engineer and pilot passionate about developing electronic aviation technology, centering on safety and intuitive design.
+                        I'm Molly McHenry, a software engineer and pilot passionate about data pipelines and backend infrastructure development.
                     </p>
 
                     <p>
-                        As a hands-on and collaborative problem-solver, I love working with a team during the design and development processes. I specialize in designing, developing, and testing real-time embedded systems, state machines, and communication protocols.
+                        As a hands-on and collaborative problem-solver, I love working with a team during the design and development processes. There's few things I enjoy more than ideating code and system structures with a group. I believe in intuitive, scalable, and dynamic software systems and love building them out!
                     </p>
 
                     <p>
-                        I'm currently studying at Brown University and working as an embedded software developer at IRIS Therapeutic Devices. 
+                        I'm currently studying at Brown University and working as a software developer at IRIS Therapeutic Devices. 
                     </p>
                 </div>
             </div>

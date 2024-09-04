@@ -8,7 +8,7 @@ export default function Work() {
                 <div id="home-banner-contents">
                     <div id="greeting-message">
                         <h1 id="greeting-line1">Hi, I'm Molly!</h1>
-                        <p id="greeting-line2">Embedded software engineer and pilot who loves coffee, trees, and electronic aviation technology.</p>
+                        <p id="greeting-line2">Software engineer and pilot who loves music streaming, trees, and sports.</p>
                     </div>
                 </div>
             </div>
