@@ -252,7 +252,7 @@
                             "The planning stage is the most important of a project.",
                             "I enjoy coordinating integration amongst my co-developers and working to fit all the pieces of a project together.",
                             "Writing extra frameworks for manual testing is extremely valuable for running manual tests.",
-                           " Traceability is very helpful, especially in the testing stage."
+                           " Traceability is crucial, especially in the testing stage."
                         ]
                     }
                 ],
@@ -356,6 +356,101 @@
                 "contents": [
                     {
                         "text": "Through this project, I learned to balance information necessary for sorting, filtering, and aggregation with good design so that the page doesn't become cluttered and visually overwhelming for users. I also learned the considerations competing song aggregators have to be mindful of when presenting information and interfaces to users."
+                    }
+                ],
+                "full_images": [],
+                "inline_images": []
+            }
+        ]
+    }, 
+    {
+        "name": "Search Engine",
+        "frameworks": ["Python"],
+        "timeline": "2 weeks",
+        "role": "Software Engineer",
+        "description_short": "A modern search engine that indexes and retrieves information from Wikipedia pages.",
+        "description_long": "I created a search engine capable of sifting through large amounts of data and quickly delivering relevant results. This project involved developing two main components: the indexer and the querier, which are responsible for pre-processing and query handling, respectively. This project was a deep dive into search algorithms and user-centric design, balancing technical efficiency with user experience.",
+        "route": "/SearchEngine",
+        "cover_image": {
+            "path": "../assets/search-engine/search-mockup.png",
+            "alt": "Cover image of the Search Engine project"
+        },
+        "main_image": {
+            "path": "../assets/search-engine/search-mockup.png",
+            "alt": "Main image showcasing the Search Engine interface"
+        },
+        "image_link": "https://github.com/NicholasBottone/ArduinoHero",
+        "collaborators": "Allie Masthay",
+        "sections": [
+            {
+                "title": "Structure",
+                "contents": [
+                    {
+                        "text": "The final use case looks like the following: a user enters a free text query, and the engine returns what it judges to be the most relevant pages for that query. To accomplish this, there indexer and querier comopnents are structured to optimize response time of the engine to user entries."
+                    },
+                    {
+                        "text": "The indexer preprocesses the corpus before answering any queries, saving files with information about which documents are relevant to which words. It parses XML data, optimizes queries through stop-word removal and stemming, and takes around 10 minutes for pre-processing to ensure instantaneous query responses"
+                    },
+                    {
+                        "text": "The querier interacts with user input, receiving a query from a user and referencing the files created by the indexer in preprocessing to quickly respond to that query. The querier component retrieves top articles based on relevance, mirroring sophisticated methods used by leading search engines."
+                    }
+                ],
+                "full_images": [
+                    {
+                        "path": "../assets/search-engine/program-structure-diagram.png",
+                        "alt": "structure diagram of search engine"
+                    }
+                ],
+                "inline_images": []
+            },
+            {
+                "title": "Indexer",
+                "contents": [
+                    {
+                        "text": "The indexer is the backbone of the search engine, responsible for processing the raw data from the XML files and transforming it into a structured format that can be efficiently queried. I began by parsing the XML documents, extracting essential elements such as titles, IDs, and the body text."
+                    },
+                    {
+                        "text": "To enhance the search experience, I implemented techniques like stop-word removal, which filters out common words that do not contribute to the meaning of the queries, and stemming, which reduces words to their base or root form. This preprocessing step is crucial as it significantly reduces the size of the dataset and improves the relevance of search results."
+                    },
+                    {
+                        "text": "The indexer also builds a mapping of terms to documents, allowing for quick lookups during the querying phase. I utilized Python's data structures to efficiently store and retrieve this information, ensuring that the indexing process, while time-consuming, would not hinder the user experience during searches."
+                    }
+                ],
+                "full_images": [],
+                "inline_images": []
+            },
+            {
+                "title": "Querier",
+                "contents": [
+                    {
+                        "text": "The querier is the user-facing component of the search engine, designed to handle incoming search queries and return relevant results. Once the indexer has processed the data, the querier utilizes the pre-built index to quickly find and rank documents based on their relevance to the user's query."
+                    },
+                    {
+                        "text": "I focused on creating a user-friendly interface that allows users to input their queries seamlessly. The querier processes the input by tokenizing the query, applying the same stop-word removal and stemming techniques used in the indexer to ensure consistency in how queries are matched against the indexed data."
+                    },
+                    {
+                        "text": "To rank the results, I implemented a simple scoring mechanism that considers factors such as term frequency and document relevance. This scoring system is designed to mimic more complex algorithms like PageRank, providing users with a list of the top articles that best match their search terms."
+                    },
+                    {
+                        "text": "The querier also includes error handling to manage invalid inputs gracefully, ensuring a smooth user experience. By iterating on the design and functionality of the querier, I was able to create a robust system that effectively meets user needs."
+                    }
+                ],
+                "full_images": [],
+                "inline_images": [
+                    {
+                        "path": "../assets/search-engine/pagerank-diagram.jpg",
+                        "alt": "page rank algorithm example graph"
+                    }
+                ]
+            },
+            {
+                "title": "Challenges and Learning",
+                "contents": [
+                    {
+                        "text": "I faced challenges optimizing the indexing process to handle large datasets without sacrificing performance, leading to valuable lessons in problem-solving and efficiency."
+                    },
+                    {
+                        "text": "The pre-processing time, while significant, was a strategic choice that ultimately led to a smoother and faster search experience."
                     }
                 ],
                 "full_images": [],

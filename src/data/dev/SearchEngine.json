@@ -3,35 +3,61 @@
     "frameworks": ["Python"],
     "timeline": "2 weeks",
     "role": "Software Engineer",
-    "description_short": "",
-    "description_long": "",
+    "description_short": "A custom search engine that indexes and retrieves information from Wikipedia pages.",
+    "description_long": "In an era where information is abundant yet often overwhelming, I embarked on a mission to create a search engine that could sift through vast amounts of data and deliver relevant results with precision. This project involved developing a fully functional search engine that efficiently processes user queries and returns the most relevant articles, implementing the renowned PageRank algorithm to enhance search result quality. The indexer component parses XML data, optimizes queries through stop-word removal and stemming, and takes around 10 minutes for pre-processing to ensure instantaneous query responses. The querier component retrieves top articles based on relevance, mirroring sophisticated methods used by leading search engines. This project was a deep dive into search algorithms and user-centric design, balancing technical efficiency with user experience.",
     "route": "/SearchEngine",
-    "cover_image":  {
-        "path":"../assets/search-engine/",
-        "alt": ""
+    "cover_image": {
+        "path": "../assets/search-engine/cover.jpg",
+        "alt": "Cover image of the Search Engine project"
     },
     "main_image": {
-        "path": "../assets/search-engine/",
-        "alt": ""
+        "path": "../assets/search-engine/main.jpg",
+        "alt": "Main image showcasing the Search Engine interface"
     },
     "collaborators": "N/A",
     "sections": [
         {
-            "title": "",
+            "title": "Project Overview",
             "contents": [
                 {
-                    "text": ""
+                    "text": "I developed a fully functional search engine that indexes and retrieves information from a curated collection of Wikipedia pages."
                 },
                 {
-                    "text":  ""
+                    "text": "The goal was to build a tool that could efficiently process user queries and return the most relevant articles, all while implementing the PageRank algorithm to enhance the quality of search results."
                 },
                 {
                     "links": [
                         {
-                            "name": "",
-                            "link": ""
+                            "name": "GitHub Repository",
+                            "link": "https://github.com/yourusername/SearchEngine"
                         }
                     ]
+                }
+            ],
+            "full_images": [],
+            "inline_images": []
+        },
+        {
+            "title": "Key Features",
+            "contents": [
+                {
+                    "text": "The indexer component parses XML data, extracting essential elements like text, titles, and IDs, while implementing stop-word removal and stemming techniques."
+                },
+                {
+                    "text": "The querier efficiently handles user input, retrieving top articles based on relevance and integrating the PageRank algorithm for improved result ranking."
+                }
+            ],
+            "full_images": [],
+            "inline_images": []
+        },
+        {
+            "title": "Challenges and Learning",
+            "contents": [
+                {
+                    "text": "I faced challenges optimizing the indexing process to handle large datasets without sacrificing performance, leading to valuable lessons in problem-solving and efficiency."
+                },
+                {
+                    "text": "The pre-processing time, while significant, was a strategic choice that ultimately led to a smoother and faster search experience."
                 }
             ],
             "full_images": [],
